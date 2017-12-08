@@ -14,16 +14,16 @@ function TspNodeBranch(path, reducedMatrix, cost, vertex) {
     });
 }
 
-TspNodeBranch.prototype.clonePath = function () {
-    return this.path.map(edge => edge.clone());
-};
-
-TspNodeBranch.prototype.cloneMatrix = function () {
-    return this.reducedMatrix.map(row => row.slice());
-};
-
-TspNodeBranch.prototype.clone = function () {
-    return new TspNodeBranch(this.clonePath(), this.cloneMatrix(), this.cost, this.vertex);
+TspNodeBranch.prototype = {
+    clonePath: function () {
+        return this.path.map(edge => edge.clone());
+    },
+    cloneMatrix: function () {
+        return this.reducedMatrix.map(row => row.slice());
+    },
+    clone: function () {
+        return new TspNodeBranch(this.clonePath(), this.cloneMatrix(), this.cost, this.vertex);
+    }
 };
 
 function TspBranch(costMatrix) {

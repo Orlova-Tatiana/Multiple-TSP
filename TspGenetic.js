@@ -17,72 +17,52 @@ TourManager.prototype.distance = function (from, to) {
 };
 
 function Tour(tourManager) {
-    let tour = new Array(tourManager.N);
-    let distance = 0; //cache
-
-    this.generateTour = function () {
-        for (let i = 0; i < tourManager.N; i++)
-            tour[i] = i;
-        tour.shuffle();
-    };
-
-    this.getVertex = function (pos) {
-        return tour[pos];
-    };
-
-    this.setVertex = function (pos, v) {
-        tour[pos] = v;
-        distance = 0; //clear cache
-    };
-
-    this.getFitness = function () {
-        return 1 / this.getDistance();
-    };
-
-    this.getDistance = function () {
-        if (distance == 0) {
-            for (let i = 0; i < tourManager.N - 1; i++)
-                distance += tourManager.distance(tour[i], tour[i + 1]);
-            distance += tourManager.distance(tour[tourManager.N - 1], tour[0]);
-        }
-        return distance;
-    };
-
-    this.containsVertex = function (v) {
-        return tour.includes(v);
-    };
-
-    this.toString = function () {
-        return tour.join("|");
-    }
+    this._tourManager = tourManager;
+    this._tour = new Array(tourManager.N);
+    this._distance = 0; //cache
 }
 
-function Population(size, tourManager) {
-    let tours = new Array(size);
+Tour.prototype = {
+    generateTour: function () {
+        for (let i = 0; i < this._tourManager.N; i++)
+            this._tour[i] = i;
+        this._tour.shuffle();
+    },
 
-    this._generatePopulation = function () {
-        for (let i = 0; i < size; i++) {
-            tours[i] = new Tour(tourManager);
-            tours[i].generateTour();
+    getVertex: function (pos) {
+        return this._tour[pos];
+    },
+
+    setVertex: function (pos, v) {
+        this._tour[pos] = v;
+        this._distance = 0; //clear cache
+    },
+
+    getFitness: function () {
+        return 1 / this.getDistance();
+    },
+
+    getDistance: function () {
+        if (this._distance == 0) {
+            for (let i = 0; i < this._tourManager.N - 1; i++)
+                this._distance += this._tourManager.distance(this._tour[i], this._tour[i + 1]);
+            this._distance += this._tourManager.distance(this._tour[this._tourManager.N - 1], this._tour[0]);
         }
-        return this;
-    };
+        return this._distance;
+    },
 
-    this.saveTour = function (pos, tour) {
-        tours[pos] = tour;
-    };
+    containsVertex: function (v) {
+        return this._tour.includes(v);
+    },
 
-    this.getTour = function (pos) {
-        return tours[pos];
-    };
+    toString: function () {
+        return this._tour.join("|");
+    }
+};
 
-    this.getFittest = function () {
-        let fittest = tours[0];
-        for (let i = 1; i < this.size; i++)
-            if (fittest.getFitness() <= tours[i].getFitness())
-                fittest = tours[i];
-        return fittest;
-    };
+function Population(size, tourManager) {
+    this._tourManager = tourManager;
+    this._tours = new Array(size);
 
     Object.defineProperty(this, "size", {
         get: function () {
@@ -91,17 +71,47 @@ function Population(size, tourManager) {
     });
 }
 
+Population.prototype = {
+    _generatePopulation: function () {
+        for (let i = 0; i < this.size; i++) {
+            this._tours[i] = new Tour(this._tourManager);
+            this._tours[i].generateTour();
+        }
+        return this;
+    },
+
+    saveTour: function (pos, tour) {
+        this._tours[pos] = tour;
+    },
+
+    getTour: function (pos) {
+        return this._tours[pos];
+    },
+
+    getFittest: function () {
+        let fittest = this._tours[0];
+        for (let i = 1; i < this.size; i++)
+            if (fittest.getFitness() <= this._tours[i].getFitness())
+                fittest = this._tours[i];
+        return fittest;
+    }
+};
+
 TspGenetic.MUTATION_RATE = 0.015;
 TspGenetic.TOURNAMENT_SIZE = 5;
 TspGenetic.ELITISM = true;
 
 function TspGenetic(tourManager) {
-    this.generatePopulation = function (size) {
-        return new Population(size, tourManager)._generatePopulation();
-    };
+    this._tourManager = tourManager;
+}
 
-    this.evolvePopulation = function (population) {
-        let newPopulation = new Population(population.size, tourManager);
+TspGenetic.prototype = {
+    generatePopulation: function (size) {
+        return new Population(size, this._tourManager)._generatePopulation();
+    },
+
+    evolvePopulation: function (population) {
+        let newPopulation = new Population(population.size, this._tourManager);
 
         let offset = 0;
         if (TspGenetic.ELITISM) {
@@ -110,38 +120,38 @@ function TspGenetic(tourManager) {
         }
 
         for (let i = offset; i < population.size; i++) {
-            let parent1 = tournament(population);
-            let parent2 = tournament(population);
-            let child = crossover(parent1, parent2);
+            let parent1 = this._tournament(population);
+            let parent2 = this._tournament(population);
+            let child = this._crossover(parent1, parent2);
             newPopulation.saveTour(i, child);
         }
 
         for (let i = offset; i < newPopulation.size; i++)
-            mutate(newPopulation.getTour(i));
+            this._mutate(newPopulation.getTour(i));
 
         return newPopulation;
-    };
+    },
 
-    function tournament(population) {
-        let tournament = new Population(TspGenetic.TOURNAMENT_SIZE, tourManager);
+    _tournament: function (population) {
+        let tournament = new Population(TspGenetic.TOURNAMENT_SIZE, this._tourManager);
         for (let i = 0; i < TspGenetic.TOURNAMENT_SIZE; i++) {
             let randI = Number.randomInt(0, population.size - 1);
             tournament.saveTour(i, population.getTour(randI));
         }
         return tournament.getFittest();
-    }
+    },
 
-    function crossover(parent1, parent2) {
-        let lo = Number.randomInt(0, TourManager.N - 1);
-        let hi = Number.randomInt(0, TourManager.N - 1);
+    _crossover: function (parent1, parent2) {
+        let lo = Number.randomInt(0, this._tourManager.N - 1);
+        let hi = Number.randomInt(0, this._tourManager.N - 1);
         [lo, hi] = [Math.min(lo, hi), Math.max(lo, hi)];
 
-        let child = new Tour(tourManager);
+        let child = new Tour(this._tourManager);
         for (let i = lo; i <= hi; i++)
             child.setVertex(i, parent1.getVertex(i));
 
         let childI = 0;
-        for (let i = 0; i < tourManager.N; i++) {
+        for (let i = 0; i < this._tourManager.N; i++) {
             let v = parent2.getVertex(i);
             if (!child.containsVertex(v)) {
                 if (childI == lo)
@@ -152,11 +162,11 @@ function TspGenetic(tourManager) {
         }
 
         return child;
-    }
+    },
 
-    function mutate(tour) {
+    _mutate: function (tour) {
         //Fisher-Yates shuffle
-        for (let i = tourManager.N - 1; i > 0; i--) {
+        for (let i = this._tourManager.N - 1; i > 0; i--) {
             if (Math.random() < TspGenetic.MUTATION_RATE) {
                 let j = Number.randomInt(0, i);
 
@@ -167,7 +177,7 @@ function TspGenetic(tourManager) {
             }
         }
     }
-}
+};
 
 //EXPORTS
 module.exports.TourManager = TourManager;
