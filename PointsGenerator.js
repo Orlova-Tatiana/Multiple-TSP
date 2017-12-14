@@ -4,13 +4,13 @@ require("./util");
 function PointsGenerator() {
 }
 
-PointsGenerator.generate = function (size, min = 1, max = 256) {
+PointsGenerator.generate = function (size, min = 1, max = 256, minY = min, maxY = max) {
     let points = new Array(size);
     let set = new Set();
 
     for (let i = 0; i < size; i++) {
         let x = Number.randomInt(min, max);
-        let y = Number.randomInt(min, max);
+        let y = Number.randomInt(minY, maxY);
         let point = {x: x, y: y};
 
         let str = JSON.stringify(point);

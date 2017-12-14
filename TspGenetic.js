@@ -51,6 +51,10 @@ Tour.prototype = {
         return this._distance;
     },
 
+    getPath: function () {
+        return this._tour;
+    },
+
     containsVertex: function (v) {
         return this._tour.includes(v);
     },
