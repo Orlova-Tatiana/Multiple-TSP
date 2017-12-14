@@ -15,7 +15,7 @@ function loadMatrix(file) {
     return matrix;
 }
 
-let m = loadMatrix("geneticM.txt");
+let m = loadMatrix("src/geneticM.txt");
 
 console.log("Genetic:");
 let tourManager = new TourManager(m);
