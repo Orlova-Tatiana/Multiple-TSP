@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Genetic</title>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <script src="lib/jquery-3.2.1.min.js"></script>
+
     <script src="js/ignoreNodeJS.js"></script>
     <script src="src/util.js"></script>
     <script src="src/PointsGenerator.js"></script>
@@ -12,13 +15,42 @@
     <script src="js/genetic.js"></script>
 </head>
 
-<body>
+<body class="container">
 
-<canvas id="canvas" width="800" height="600" style="border: 1px solid black"></canvas>
+<h1 class="text-center mt-2 mb-4">TSP: Genetic algorithm</h1>
 
-<script>
-    init(document.getElementById("canvas"));
-</script>
+<div class="row">
+    <div class="col-auto">
+        <canvas id="canvas" width="800" height="600" style="border: 1px solid black"></canvas>
+    </div>
+    <div class="col d-flex align-items-start flex-column">
+        <fieldset class="form-group row w-100">
+            <legend>Points</legend>
+            <div class="row m-0">
+                <label class="form-check-label col">
+                    <input type="radio" class="form-check-input" value="50" name="points" checked> 50
+                </label>
+                <label class="form-check-label col">
+                    <input type="radio" class="form-check-input" value="100" name="points"> 100
+                </label>
+                <label class="form-check-label col">
+                    <input type="radio" class="form-check-input" value="150" name="points"> 150
+                </label>
+                <label class="form-check-label col">
+                    <input type="radio" class="form-check-input" value="200" name="points"> 200
+                </label>
+            </div>
+        </fieldset>
+
+        <div class="row mt-auto w-100">
+            <div class="col p-0 text-center">
+                <input type="button" class="btn btn-sm m-1" id="start" value="Start">
+                <input type="button" class="btn btn-sm m-1" id="reset" value="Reset">
+            </div>
+        </div>
+
+    </div>
+</div>
 
 </body>
 

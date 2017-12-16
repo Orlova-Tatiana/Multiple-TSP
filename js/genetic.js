@@ -2,71 +2,144 @@
 // const MatrixConverter = require("../MatrixConverter");
 // const {TspGenetic, Population, TourManager} = require("../TspGenetic");
 
-function init(canvas) {
-    let points = generatePoints(canvas);
-    let matrix = MatrixConverter.toDistMatrix(points);
-    let tourManager = new TourManager(matrix);
-    let tsp = new TspGenetic(tourManager);
+$(function () {
 
-    let population = tsp.generatePopulation(30);
-    draw(canvas, points, population.getFittest().getPath());
+    let graphDrawer = new GraphDrawer($("#canvas")[0]);
+    let points;
+    let tsp;
+    let population;
+    let loopId;
 
-    let i = 0;
-    setTimeout(function next() {
-        population = tsp.evolvePopulation(population);
-        draw(canvas, points, population.getFittest().getPath());
-        setTimeout(next, 0);
-    }, 0);
-}
+    setupListeners();
 
-function generatePoints(canvas) {
-    let width = canvas.width;
-    let height = canvas.height;
-    return PointsGenerator.generate(50, 5, width - 5, 5, height - 5);
-}
+    function setupListeners() {
+        let startButton = $("#start");
 
-function draw(canvas, points, path) {
-    points = index(points, path);
+        let onStart = function () {
+            if (!population) {
+                let size = $("[name='points']:checked").val();
+                init(size);
+            }
 
-    let ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawPoints(ctx, points);
-    drawPath(ctx, points);
-}
+            start();
 
-function index(arr, index) {
-    let newArr = new Array(index.length);
-    for (let i = 0; i < index.length; i++) {
-        newArr[i] = arr[index[i]];
+            startButton.val("Stop");
+            startButton.off("click", onStart);
+            startButton.click(onStop);
+        };
+
+        let onStop = function () {
+            stop();
+
+            startButton.val("Continue");
+            startButton.off("click", onStop);
+            startButton.click(onStart);
+        };
+
+        let onReset = function () {
+            onStop();
+            reset();
+
+            startButton.val("Start");
+            graphDrawer.clear();
+        };
+
+        startButton.click(onStart);
+        $("#reset").click(onReset);
     }
-    return newArr;
-}
 
-function drawPoints(ctx, points) {
-    ctx.fillStyle = "black";
+    function init(size) {
+        reset();
 
-    for (let point of points) {
-        drawPoint(ctx, point.x, point.y);
+        points = generatePoints(size);
+        let matrix = MatrixConverter.toDistMatrix(points);
+        let tourManager = new TourManager(matrix);
+        tsp = new TspGenetic(tourManager);
     }
-}
 
-function drawPoint(ctx, x, y) {
-    ctx.beginPath();
-    ctx.arc(x, y, 3, 0, 2 * Math.PI, false);
-    ctx.fillStyle = 'black';
-    ctx.fill();
-    ctx.closePath();
-}
-
-function drawPath(ctx, points) {
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 1;
-
-    ctx.beginPath();
-    let last = points[points.length - 1];
-    ctx.moveTo(last.x, last.y);
-    for (let point of points) {
-        ctx.lineTo(point.x, point.y);
+    function reset() {
+        points = null;
+        tsp = null;
+        population = null;
     }
-    ctx.stroke();
+
+    function start() {
+        if (!population) {
+            population = tsp.generatePopulation(30);
+            graphDrawer.draw(points);
+        }
+
+        loopId = setTimeout(function next() {
+            population = tsp.evolvePopulation(population);
+            let fittest = population.getFittest().getPath();
+            graphDrawer.draw(rearrangePath(points, fittest));
+            loopId = setTimeout(next, 0);
+        }, 0);
+    }
+
+    function stop() {
+        clearTimeout(loopId);
+    }
+
+    function generatePoints(n) {
+        let canvas = $("#canvas")[0];
+        let width = canvas.width;
+        let height = canvas.height;
+        return PointsGenerator.generate(n, 5, width - 5, 5, height - 5);
+    }
+
+    function rearrangePath(points, index) {
+        let newPoints = new Array(index.length);
+        for (let i = 0; i < index.length; i++) {
+            newPoints[i] = points[index[i]];
+        }
+        return newPoints;
+    }
+
+});
+
+function GraphDrawer(canvas) {
+    let context = canvas.getContext("2d");
+
+    function drawPoints(points) {
+        context.fillStyle = "black";
+
+        for (let point of points) {
+            drawPoint(point.x, point.y);
+        }
+    }
+
+    function drawPoint(x, y) {
+        context.beginPath();
+        context.arc(x, y, 3, 0, 2 * Math.PI, false);
+        context.fillStyle = 'black';
+        context.fill();
+        context.closePath();
+    }
+
+    function drawPath(points) {
+        context.strokeStyle = "red";
+        context.lineWidth = 1;
+
+        context.beginPath();
+        let last = points[points.length - 1];
+        context.moveTo(last.x, last.y);
+        for (let point of points) {
+            context.lineTo(point.x, point.y);
+        }
+        context.stroke();
+    }
+
+    function clear() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    //API
+    this.draw = function (points) {
+        clear();
+        drawPoints(points);
+        drawPath(points);
+    };
+
+    this.clear = clear;
 }
