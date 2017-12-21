@@ -182,6 +182,10 @@ TspGenetic.prototype = {
     },
 
     _crossover: function (parent1, parent2) {
+        return this._crossoverSegment(parent1, parent2);
+    },
+
+    _crossoverSegment: function (parent1, parent2) {
         let lo = Number.randomInt(0, this._tourManager.N - 1);
         let hi = Number.randomInt(0, this._tourManager.N - 1);
         [lo, hi] = [Math.min(lo, hi), Math.max(lo, hi)];
@@ -198,6 +202,27 @@ TspGenetic.prototype = {
                     childI = hi + 1;
                 child.setVertex(childI, v);
                 childI++;
+            }
+        }
+
+        return child;
+    },
+
+    _crossoverN: function (parent1, parent2) {
+        let child = new Tour(this._tourManager);
+
+        for (let i = 0; i < this._tourManager.N; i++) {
+            if (Math.random() < 0.5)
+                child.setVertex(i, parent1.getVertex(i));
+        }
+
+        let childI = 0;
+        for (let i = 0; i < this._tourManager.N; i++) {
+            let v = parent2.getVertex(i);
+            if (!child.containsVertex(v)) {
+                while (child.getVertex(childI) !== undefined)
+                    childI++;
+                child.setVertex(childI, v);
             }
         }
 
