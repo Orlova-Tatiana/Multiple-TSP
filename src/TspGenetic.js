@@ -107,25 +107,40 @@ TspGenetic.ELITISM = true;
 
 function TspGenetic(tourManager) {
     this._tourManager = tourManager;
+    this._population = this._generatePopulation(30);
+    this._iter = 0;
 }
 
 TspGenetic.prototype = {
-    generatePopulation: function (size) {
+    evolve: function () {
+        this._population = this._evolvePopulation();
+        this._iter++;
+    },
+
+    getBestTour: function () {
+        return this._population.getFittest();
+    },
+
+    iteration: function () {
+        return this._iter;
+    },
+
+    _generatePopulation: function (size) {
         return new Population(size, this._tourManager)._generatePopulation();
     },
 
-    evolvePopulation: function (population) {
-        let newPopulation = new Population(population.size, this._tourManager);
+    _evolvePopulation: function () {
+        let newPopulation = new Population(this._population.size, this._tourManager);
 
         let offset = 0;
         if (TspGenetic.ELITISM) {
-            newPopulation.saveTour(0, population.getFittest());
+            newPopulation.saveTour(0, this._population.getFittest());
             offset = 1;
         }
 
-        for (let i = offset; i < population.size; i++) {
-            let parent1 = this._tournament(population);
-            let parent2 = this._tournament(population);
+        for (let i = offset; i < this._population.size; i++) {
+            let parent1 = this._tournament(this._population);
+            let parent2 = this._tournament(this._population);
             let child = this._crossover(parent1, parent2);
             newPopulation.saveTour(i, child);
         }

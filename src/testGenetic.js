@@ -19,9 +19,7 @@ let m = loadMatrix("src/geneticM.txt");
 
 console.log("Genetic:");
 let tourManager = new TourManager(m);
-
 let genetic = new TspGenetic(tourManager);
-let pop = genetic.generatePopulation(30);
 
 function clock(start) {
     if (!start) return process.hrtime();
@@ -31,10 +29,11 @@ function clock(start) {
 
 let iter = 100;
 let start = clock();
-for (let i = 0; ; i++) {
-    if (i % iter == 0) {
-        console.log(i, "cost =", pop.getFittest().getDistance());
+
+while (true) {
+    if (genetic.iteration() % iter == 0) {
+        console.log(genetic.iteration(), "cost =", genetic.getBestTour().getDistance());
         // console.log("Overall time is", clock(start), "ms");
     }
-    pop = genetic.evolvePopulation(pop);
+    genetic.evolve();
 }

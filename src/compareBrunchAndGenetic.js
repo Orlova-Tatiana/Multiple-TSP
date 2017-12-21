@@ -20,14 +20,13 @@ console.log("Genetic:");
 let tourManager = new TourManager(matrix);
 
 let genetic = new TspGenetic(tourManager);
-let pop = genetic.generatePopulation(30);
 let count = 0;
 let EPS = 1e-7;
-while (pop.getFittest().getDistance() > branch.cost + EPS && count < 10000) {
-    pop = genetic.evolvePopulation(pop);
+while (genetic.getBestTour().getDistance() > branch.cost + EPS && count < 10000) {
+    genetic.evolve();
     count++;
 }
 
-console.log("cost = " + pop.getFittest().getDistance());
+console.log("cost = " + genetic.getBestTour().getDistance());
 console.log("iterations = " + count);
-console.log("path = " + pop.getFittest().toString());
+console.log("path = " + genetic.getBestTour().toString());

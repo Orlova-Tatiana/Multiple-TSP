@@ -7,7 +7,6 @@ $(function () {
     let graphDrawer = new GraphDrawer($("#canvas")[0]);
     let points;
     let tsp;
-    let population;
     let loopId;
 
     setupListeners();
@@ -16,7 +15,7 @@ $(function () {
         let startButton = $("#start");
 
         let onStart = function () {
-            if (!population) {
+            if (!tsp) {
                 let size = $("[name='points']:checked").val();
                 init(size);
             }
@@ -60,19 +59,13 @@ $(function () {
     function reset() {
         points = null;
         tsp = null;
-        population = null;
     }
 
     function start() {
-        if (!population) {
-            population = tsp.generatePopulation(30);
-            graphDrawer.draw(points);
-        }
-
         loopId = setTimeout(function next() {
-            population = tsp.evolvePopulation(population);
-            let fittest = population.getFittest().getPath();
-            graphDrawer.draw(rearrangePath(points, fittest));
+            tsp.evolve();
+            let path = tsp.getBestTour().getPath();
+            graphDrawer.draw(rearrangePath(points, path));
             loopId = setTimeout(next, 0);
         }, 0);
     }
