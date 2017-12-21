@@ -113,7 +113,7 @@ function TspGenetic(tourManager) {
 
 TspGenetic.prototype = {
     evolve: function () {
-        this._population = this._evolvePopulation();
+        this._population = this._evolvePopulation(this._population);
         this._iter++;
     },
 
@@ -129,18 +129,18 @@ TspGenetic.prototype = {
         return new Population(size, this._tourManager)._generatePopulation();
     },
 
-    _evolvePopulation: function () {
-        let newPopulation = new Population(this._population.size, this._tourManager);
+    _evolvePopulation: function (population) {
+        let newPopulation = new Population(population.size, this._tourManager);
 
         let offset = 0;
         if (TspGenetic.ELITISM) {
-            newPopulation.saveTour(0, this._population.getFittest());
+            newPopulation.saveTour(0, population.getFittest());
             offset = 1;
         }
 
-        for (let i = offset; i < this._population.size; i++) {
-            let parent1 = this._tournament(this._population);
-            let parent2 = this._tournament(this._population);
+        for (let i = offset; i < population.size; i++) {
+            let parent1 = this._selection(population);
+            let parent2 = this._selection(population);
             let child = this._crossover(parent1, parent2);
             newPopulation.saveTour(i, child);
         }
@@ -149,6 +149,27 @@ TspGenetic.prototype = {
             this._mutate(newPopulation.getTour(i));
 
         return newPopulation;
+    },
+
+    _selection: function (population) {
+        return this._tournament(population);
+    },
+
+    _roulette: function (population) {
+        let wheel = new Array(population.size);
+        wheel[0] = population.getTour(0).getFitness();
+        for (let i = 1; i < population.size; i++)
+            wheel[i] = wheel[i - 1] + population.getTour(i).getFitness();
+
+        let max = wheel[population.size - 1];
+        let rand = Math.random() * max;
+
+        let i = 0;
+        while (wheel[i] < rand) {
+            i++;
+        }
+
+        return population.getTour(i);
     },
 
     _tournament: function (population) {
