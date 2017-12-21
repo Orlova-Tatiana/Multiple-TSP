@@ -25,6 +25,7 @@ $(function () {
             startButton.val("Stop");
             startButton.off("click", onStart);
             startButton.click(onStop);
+            $("#stat").show();
         };
 
         let onStop = function () {
@@ -41,10 +42,13 @@ $(function () {
 
             startButton.val("Start");
             graphDrawer.clear();
+            $("#stat").hide();
         };
 
         startButton.click(onStart);
         $("#reset").click(onReset);
+
+        $("#stat").hide();
     }
 
     function init(size) {
@@ -64,9 +68,12 @@ $(function () {
     function start() {
         loopId = setTimeout(function next() {
             tsp.evolve();
-            let path = tsp.getBestTour().getPath();
-            graphDrawer.draw(rearrangePath(points, path));
+            let tour = tsp.getBestTour();
+            graphDrawer.draw(rearrangePath(points, tour.getPath()));
             loopId = setTimeout(next, 0);
+
+            $("#stat-iter").text(tsp.iteration());
+            $("#stat-dist").text(tour.getDistance());
         }, 0);
     }
 
