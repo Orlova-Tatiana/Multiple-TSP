@@ -101,7 +101,6 @@ Population.prototype = {
 };
 
 TspGenetic.MUTATION_RATE = 0.015;
-TspGenetic.TOURNAMENT_SIZE = 5;
 TspGenetic.ELITISM = true;
 
 function TspGenetic(tourManager) {
@@ -109,33 +108,18 @@ function TspGenetic(tourManager) {
     this._population = this._generatePopulation(30);
     this._iter = 0;
 
-    this._selection = null;
+    this._selectionStrategy = null;
+    this._crossoverStrategy = null;
 }
 
 TspGenetic.prototype = {
-    setSelection: function (strategy) {
-        this._selection = strategy;
+    _generatePopulation: function (size) {
+        return new Population(size, this._tourManager)._generatePopulation();
     },
 
     evolve: function () {
         this._population = this._evolvePopulation(this._population);
         this._iter++;
-    },
-
-    getBestTour: function () {
-        return this._population.getFittest();
-    },
-
-    getTourManager: function () {
-        return this._tourManager;
-    },
-
-    iteration: function () {
-        return this._iter;
-    },
-
-    _generatePopulation: function (size) {
-        return new Population(size, this._tourManager)._generatePopulation();
     },
 
     _evolvePopulation: function (population) {
@@ -148,8 +132,8 @@ TspGenetic.prototype = {
         }
 
         for (let i = offset; i < population.size; i++) {
-            let parent1 = this._selection.exec(population, this._tourManager);
-            let parent2 = this._selection.exec(population, this._tourManager);
+            let parent1 = this._selection(population);
+            let parent2 = this._selection(population);
             let child = this._crossover(parent1, parent2);
             newPopulation.saveTour(i, child);
         }
@@ -160,52 +144,32 @@ TspGenetic.prototype = {
         return newPopulation;
     },
 
+    _selection: function (population) {
+        return this._selectionStrategy.exec(population, this._tourManager);
+    },
+
     _crossover: function (parent1, parent2) {
-        return this._crossoverSegment(parent1, parent2);
+        return this._crossoverStrategy.exec(parent1, parent2, this._tourManager);
     },
 
-    _crossoverSegment: function (parent1, parent2) {
-        let lo = Number.randomInt(0, this._tourManager.N - 1);
-        let hi = Number.randomInt(0, this._tourManager.N - 1);
-        [lo, hi] = [Math.min(lo, hi), Math.max(lo, hi)];
-
-        let child = new Tour(this._tourManager);
-        for (let i = lo; i <= hi; i++)
-            child.setVertex(i, parent1.getVertex(i));
-
-        let childI = 0;
-        for (let i = 0; i < this._tourManager.N; i++) {
-            let v = parent2.getVertex(i);
-            if (!child.containsVertex(v)) {
-                if (childI == lo)
-                    childI = hi + 1;
-                child.setVertex(childI, v);
-                childI++;
-            }
-        }
-
-        return child;
+    setSelection: function (strategy) {
+        this._selectionStrategy = strategy;
     },
 
-    _crossoverN: function (parent1, parent2) {
-        let child = new Tour(this._tourManager);
+    setCrossover: function (strategy) {
+        this._crossoverStrategy = strategy;
+    },
 
-        for (let i = 0; i < this._tourManager.N; i++) {
-            if (Math.random() < 0.5)
-                child.setVertex(i, parent1.getVertex(i));
-        }
+    getBestTour: function () {
+        return this._population.getFittest();
+    },
 
-        let childI = 0;
-        for (let i = 0; i < this._tourManager.N; i++) {
-            let v = parent2.getVertex(i);
-            if (!child.containsVertex(v)) {
-                while (child.getVertex(childI) !== undefined)
-                    childI++;
-                child.setVertex(childI, v);
-            }
-        }
+    getTourManager: function () {
+        return this._tourManager;
+    },
 
-        return child;
+    iteration: function () {
+        return this._iter;
     },
 
     _mutate: function (tour) {
