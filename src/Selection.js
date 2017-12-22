@@ -1,10 +1,10 @@
 "use strict";
 
-function TournamentStrategy(tournamentSize = 5) {
+function TournamentSelectionStrategy(tournamentSize = 5) {
     this._tournamentSize = tournamentSize;
 }
 
-TournamentStrategy.prototype.exec = function (population, tourManager) {
+TournamentSelectionStrategy.prototype.exec = function (population, tourManager) {
     let tournament = new Population(this._tournamentSize, tourManager);
     for (let i = 0; i < this._tournamentSize; i++) {
         let randI = Number.randomInt(0, population.size - 1);
@@ -13,12 +13,12 @@ TournamentStrategy.prototype.exec = function (population, tourManager) {
     return tournament.getFittest();
 };
 
-function RouletteStrategy() {
+function RouletteSelectionStrategy() {
     this._wheel = null;
     this._population = null;
 }
 
-RouletteStrategy.prototype._getWheel = function (population) {
+RouletteSelectionStrategy.prototype._getWheel = function (population) {
     if (this._population === population)
         return this._wheel;
 
@@ -32,7 +32,7 @@ RouletteStrategy.prototype._getWheel = function (population) {
     return wheel;
 };
 
-RouletteStrategy.prototype.exec = function (population) {
+RouletteSelectionStrategy.prototype.exec = function (population) {
     let wheel = this._getWheel(population);
 
     let max = wheel[population.size - 1];

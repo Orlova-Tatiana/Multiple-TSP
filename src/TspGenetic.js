@@ -100,7 +100,6 @@ Population.prototype = {
     }
 };
 
-TspGenetic.MUTATION_RATE = 0.015;
 TspGenetic.ELITISM = true;
 
 function TspGenetic(tourManager) {

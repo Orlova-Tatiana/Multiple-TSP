@@ -58,7 +58,7 @@ $(function () {
         let matrix = MatrixConverter.toDistMatrix(points);
         let tourManager = new TourManager(matrix);
         tsp = new TspGenetic(tourManager);
-        tsp.setSelection(new TournamentStrategy());
+        tsp.setSelection(new TournamentSelectionStrategy());
         tsp.setCrossover(new SegmentCrossoverStrategy());
         tsp.setMutation(new FisherYatesMutationStrategy(0.015));
     }
