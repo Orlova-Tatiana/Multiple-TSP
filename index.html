@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <title>Genetic</title>
     <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/formhelper/bootstrap-formhelpers.min.css">
     <script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/formhelper/bootstrap-formhelpers.js"></script>
 
     <script src="src/util.js"></script>
     <script src="src/PointsGenerator.js"></script>
@@ -17,7 +19,7 @@
     <script src="js/genetic.js"></script>
 </head>
 
-<body class="container">
+<body class="container p-0">
 
 <h1 class="text-center mt-2 mb-4">TSP: Genetic algorithm</h1>
 
@@ -52,6 +54,14 @@
                 <label class="form-check-label col">
                     <input type="checkbox" class="form-check-input" name="elitism" id="elitism" checked> Elitism
                 </label>
+            </div>
+        </div>
+
+        <div class="row w-100">
+            <div class="form-group w-100">
+                <label>Population</label>
+                <div class="bfh-slider" id="population" data-name="population" data-min="10" data-max="200"
+                     data-value="30"></div>
             </div>
         </div>
 
