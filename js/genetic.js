@@ -54,6 +54,7 @@ $(function () {
         let matrix = MatrixConverter.toDistMatrix(points);
         let tourManager = new TourManager(matrix);
         tsp = new TspGenetic(tourManager);
+        setElitism();
         setSelection();
         setCrossover();
         setMutation();
@@ -62,6 +63,11 @@ $(function () {
     function reset() {
         points = null;
         tsp = null;
+    }
+
+    function setElitism() {
+        let elitism = $("#elitism").is(":checked");
+        tsp.setElitism(elitism);
     }
 
     function setSelection() {

@@ -100,12 +100,11 @@ Population.prototype = {
     }
 };
 
-TspGenetic.ELITISM = true;
-
 function TspGenetic(tourManager) {
     this._tourManager = tourManager;
     this._population = this._generatePopulation(30);
     this._iter = 0;
+    this._elitism = true; //default setting
 
     this._selectionStrategy = null;
     this._crossoverStrategy = null;
@@ -126,7 +125,7 @@ TspGenetic.prototype = {
         let newPopulation = new Population(population.size, this._tourManager);
 
         let offset = 0;
-        if (TspGenetic.ELITISM) {
+        if (this._elitism) {
             newPopulation.saveTour(0, population.getFittest());
             offset = 1;
         }
@@ -166,6 +165,10 @@ TspGenetic.prototype = {
 
     setMutation: function (strategy) {
         this._mutationStrategy = strategy;
+    },
+
+    setElitism: function (elitism) {
+        this._elitism = elitism;
     },
 
     getBestTour: function () {
