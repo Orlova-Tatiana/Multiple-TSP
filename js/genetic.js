@@ -55,7 +55,7 @@ $(function () {
         let tourManager = new TourManager(matrix);
         tsp = new TspGenetic(tourManager);
         setSelection();
-        tsp.setCrossover(new SegmentCrossoverStrategy());
+        setCrossover();
         tsp.setMutation(new FisherYatesMutationStrategy(0.015));
     }
 
@@ -75,6 +75,20 @@ $(function () {
                 break;
             default:
                 throw "Selection is not chosen";
+        }
+    }
+
+    function setCrossover() {
+        let name = $("#crossover").find(":selected").val();
+        switch (name) {
+            case "segment":
+                tsp.setCrossover(new SegmentCrossoverStrategy());
+                break;
+            case "random_half":
+                tsp.setCrossover(new RandomHalfCrossoverStrategy());
+                break;
+            default:
+                throw "Crossover is not chosen";
         }
     }
 
