@@ -59,7 +59,7 @@ $(function () {
         let tourManager = new TourManager(matrix);
         tsp = new TspGenetic(tourManager);
         tsp.setSelection(new TournamentStrategy());
-        tsp.setCrossover(new CrossoverSegmentStrategy());
+        tsp.setCrossover(new SegmentCrossoverStrategy());
     }
 
     function reset() {

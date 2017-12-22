@@ -1,10 +1,10 @@
 "use strict";
 
-function CrossoverSegmentStrategy() {
+function SegmentCrossoverStrategy() {
 
 }
 
-CrossoverSegmentStrategy.prototype.exec = function (parent1, parent2, tourManager) {
+SegmentCrossoverStrategy.prototype.exec = function (parent1, parent2, tourManager) {
     let lo = Number.randomInt(0, tourManager.N - 1);
     let hi = Number.randomInt(0, tourManager.N - 1);
     [lo, hi] = [Math.min(lo, hi), Math.max(lo, hi)];
@@ -27,11 +27,11 @@ CrossoverSegmentStrategy.prototype.exec = function (parent1, parent2, tourManage
     return child;
 };
 
-function CrossoverRandomHalfStrategy() {
+function RandomHalfCrossoverStrategy() {
 
 }
 
-CrossoverRandomHalfStrategy.prototype.exec = function (parent1, parent2, tourManager) {
+RandomHalfCrossoverStrategy.prototype.exec = function (parent1, parent2, tourManager) {
     let child = new Tour(tourManager);
 
     for (let i = 0; i < tourManager.N; i++) {
