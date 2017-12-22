@@ -56,7 +56,7 @@ $(function () {
         tsp = new TspGenetic(tourManager);
         setSelection();
         setCrossover();
-        tsp.setMutation(new FisherYatesMutationStrategy(0.015));
+        setMutation();
     }
 
     function reset() {
@@ -89,6 +89,20 @@ $(function () {
                 break;
             default:
                 throw "Crossover is not chosen";
+        }
+    }
+
+    function setMutation() {
+        let name = $("#mutation").find(":selected").val();
+        switch (name) {
+            case "fisher":
+                tsp.setMutation(new FisherYatesMutationStrategy(0.03));
+                break;
+            case "no":
+                tsp.setMutation(new NoMutationStrategy());
+                break;
+            default:
+                throw "Mutation is not chosen";
         }
     }
 
