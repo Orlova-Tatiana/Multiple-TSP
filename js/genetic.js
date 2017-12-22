@@ -1,7 +1,3 @@
-// const PointsGenerator = require("../PointsGenerator");
-// const MatrixConverter = require("../MatrixConverter");
-// const {TspGenetic, Population, TourManager} = require("../TspGenetic");
-
 $(function () {
 
     let graphDrawer = new GraphDrawer($("#canvas")[0]);
@@ -58,7 +54,7 @@ $(function () {
         let matrix = MatrixConverter.toDistMatrix(points);
         let tourManager = new TourManager(matrix);
         tsp = new TspGenetic(tourManager);
-        tsp.setSelection(new TournamentSelectionStrategy());
+        setSelection();
         tsp.setCrossover(new SegmentCrossoverStrategy());
         tsp.setMutation(new FisherYatesMutationStrategy(0.015));
     }
@@ -66,6 +62,20 @@ $(function () {
     function reset() {
         points = null;
         tsp = null;
+    }
+
+    function setSelection() {
+        let name = $("#selection").find(":selected").val();
+        switch (name) {
+            case "tournament":
+                tsp.setSelection(new TournamentSelectionStrategy());
+                break;
+            case "roulette":
+                tsp.setSelection(new RouletteSelectionStrategy());
+                break;
+            default:
+                throw "Selection is not chosen";
+        }
     }
 
     function start() {

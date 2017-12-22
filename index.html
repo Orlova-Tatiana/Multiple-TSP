@@ -26,23 +26,35 @@
         <canvas id="canvas" width="800" height="600" style="border: 1px solid black"></canvas>
     </div>
     <div class="col d-flex align-items-start flex-column">
-        <fieldset class="form-group row w-100">
-            <legend>Points</legend>
-            <div class="row m-0">
-                <label class="form-check-label col">
-                    <input type="radio" class="form-check-input" value="50" name="points" checked> 50
-                </label>
-                <label class="form-check-label col">
-                    <input type="radio" class="form-check-input" value="100" name="points"> 100
-                </label>
-                <label class="form-check-label col">
-                    <input type="radio" class="form-check-input" value="150" name="points"> 150
-                </label>
-                <label class="form-check-label col">
-                    <input type="radio" class="form-check-input" value="200" name="points"> 200
-                </label>
+        <div class="row">
+            <fieldset class="form-group">
+                <legend>Points</legend>
+                <div class="row m-0">
+                    <label class="form-check-label col">
+                        <input type="radio" class="form-check-input" value="50" name="points" checked> 50
+                    </label>
+                    <label class="form-check-label col">
+                        <input type="radio" class="form-check-input" value="100" name="points"> 100
+                    </label>
+                    <label class="form-check-label col">
+                        <input type="radio" class="form-check-input" value="150" name="points"> 150
+                    </label>
+                    <label class="form-check-label col">
+                        <input type="radio" class="form-check-input" value="200" name="points"> 200
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <legend>Selection</legend>
+                <select class="form-control" id="selection">
+                    <option selected value="tournament">Tournament</option>
+                    <option value="roulette">Roulette</option>
+                </select>
             </div>
-        </fieldset>
+        </div>
 
         <div class="row mt-auto w-100">
             <div class="col p-0 text-center">
