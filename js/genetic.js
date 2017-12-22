@@ -58,6 +58,7 @@ $(function () {
         let matrix = MatrixConverter.toDistMatrix(points);
         let tourManager = new TourManager(matrix);
         tsp = new TspGenetic(tourManager);
+        tsp.setSelection(new TournamentStrategy());
     }
 
     function reset() {

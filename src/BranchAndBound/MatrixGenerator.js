@@ -1,5 +1,5 @@
 "use strict";
-require("./util");
+require("../util");
 
 function MatrixGenerator() {
 }

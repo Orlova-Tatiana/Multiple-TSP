@@ -1,5 +1,4 @@
 "use strict";
-require("./util");
 
 function TourManager(matrix) {
     let self = this;
@@ -109,9 +108,15 @@ function TspGenetic(tourManager) {
     this._tourManager = tourManager;
     this._population = this._generatePopulation(30);
     this._iter = 0;
+
+    this._selection = null;
 }
 
 TspGenetic.prototype = {
+    setSelection: function (strategy) {
+        this._selection = strategy;
+    },
+
     evolve: function () {
         this._population = this._evolvePopulation(this._population);
         this._iter++;
@@ -119,6 +124,10 @@ TspGenetic.prototype = {
 
     getBestTour: function () {
         return this._population.getFittest();
+    },
+
+    getTourManager: function () {
+        return this._tourManager;
     },
 
     iteration: function () {
@@ -139,8 +148,8 @@ TspGenetic.prototype = {
         }
 
         for (let i = offset; i < population.size; i++) {
-            let parent1 = this._selection(population);
-            let parent2 = this._selection(population);
+            let parent1 = this._selection.exec(population, this._tourManager);
+            let parent2 = this._selection.exec(population, this._tourManager);
             let child = this._crossover(parent1, parent2);
             newPopulation.saveTour(i, child);
         }
@@ -149,36 +158,6 @@ TspGenetic.prototype = {
             this._mutate(newPopulation.getTour(i));
 
         return newPopulation;
-    },
-
-    _selection: function (population) {
-        return this._tournament(population);
-    },
-
-    _roulette: function (population) {
-        let wheel = new Array(population.size);
-        wheel[0] = population.getTour(0).getFitness();
-        for (let i = 1; i < population.size; i++)
-            wheel[i] = wheel[i - 1] + population.getTour(i).getFitness();
-
-        let max = wheel[population.size - 1];
-        let rand = Math.random() * max;
-
-        let i = 0;
-        while (wheel[i] < rand) {
-            i++;
-        }
-
-        return population.getTour(i);
-    },
-
-    _tournament: function (population) {
-        let tournament = new Population(TspGenetic.TOURNAMENT_SIZE, this._tourManager);
-        for (let i = 0; i < TspGenetic.TOURNAMENT_SIZE; i++) {
-            let randI = Number.randomInt(0, population.size - 1);
-            tournament.saveTour(i, population.getTour(randI));
-        }
-        return tournament.getFittest();
     },
 
     _crossover: function (parent1, parent2) {
@@ -243,9 +222,3 @@ TspGenetic.prototype = {
         }
     }
 };
-
-//EXPORTS
-module.exports.TourManager = TourManager;
-module.exports.TspGenetic = TspGenetic;
-module.exports.Population = Population;
-module.exports.Tour = Tour;

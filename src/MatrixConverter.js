@@ -21,5 +21,3 @@ MatrixConverter.toDistMatrix = function (points) {
 
     return matrix;
 };
-
-module.exports = MatrixConverter;

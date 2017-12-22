@@ -1,5 +1,4 @@
 "use strict";
-require("./util");
 
 function PointsGenerator() {
 }
@@ -24,5 +23,3 @@ PointsGenerator.generate = function (size, min = 1, max = 256, minY = min, maxY 
     }
     return points;
 };
-
-module.exports = PointsGenerator;
