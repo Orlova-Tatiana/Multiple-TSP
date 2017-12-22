@@ -60,6 +60,7 @@ $(function () {
         tsp = new TspGenetic(tourManager);
         tsp.setSelection(new TournamentStrategy());
         tsp.setCrossover(new SegmentCrossoverStrategy());
+        tsp.setMutation(new FisherYatesMutationStrategy(0.015));
     }
 
     function reset() {

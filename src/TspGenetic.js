@@ -110,6 +110,7 @@ function TspGenetic(tourManager) {
 
     this._selectionStrategy = null;
     this._crossoverStrategy = null;
+    this._mutationStrategy = null;
 }
 
 TspGenetic.prototype = {
@@ -152,12 +153,20 @@ TspGenetic.prototype = {
         return this._crossoverStrategy.exec(parent1, parent2, this._tourManager);
     },
 
+    _mutate: function (tour) {
+        this._mutationStrategy.exec(tour, this._tourManager);
+    },
+
     setSelection: function (strategy) {
         this._selectionStrategy = strategy;
     },
 
     setCrossover: function (strategy) {
         this._crossoverStrategy = strategy;
+    },
+
+    setMutation: function (strategy) {
+        this._mutationStrategy = strategy;
     },
 
     getBestTour: function () {
@@ -171,18 +180,4 @@ TspGenetic.prototype = {
     iteration: function () {
         return this._iter;
     },
-
-    _mutate: function (tour) {
-        //Fisher-Yates shuffle
-        for (let i = this._tourManager.N - 1; i > 0; i--) {
-            if (Math.random() < TspGenetic.MUTATION_RATE) {
-                let j = Number.randomInt(0, i);
-
-                let v1 = tour.getVertex(i);
-                let v2 = tour.getVertex(j);
-                tour.setVertex(i, v2);
-                tour.setVertex(j, v1);
-            }
-        }
-    }
 };
