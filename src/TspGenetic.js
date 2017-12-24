@@ -51,7 +51,7 @@ Tour.prototype = {
     },
 
     getPath: function () {
-        return this._tour;
+        return this._tour.slice();
     },
 
     containsVertex: function (v) {

@@ -97,6 +97,9 @@ $(function () {
             case "random_half":
                 tsp.setCrossover(new RandomHalfCrossoverStrategy());
                 break;
+            case "next":
+                tsp.setCrossover(new NextCrossoverStrategy());
+                break;
             default:
                 throw "Crossover is not chosen";
         }
