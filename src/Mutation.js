@@ -56,3 +56,24 @@ ReverseMutation.prototype._swap = function (tour, i, j) {
     tour.setVertex(i, v2);
     tour.setVertex(j, v1);
 };
+
+function SegmentMutation(mutationRate = 0.015) {
+    this._mutationRate = mutationRate;
+}
+
+SegmentMutation.prototype.exec = function (tour) {
+    let lo, hi;
+    do {
+        lo = Number.randomInt(0, (tour.N - 1) >> 1);
+        hi = Number.randomInt(0, tour.N - 1);
+    } while (lo >= hi);
+
+    let path = tour.getPath();
+    let tourI = 0;
+    for (let i = lo; i < hi; i++)
+        tour.setVertex(tourI++, path[i]);
+    for (let i = 0; i < lo; i++)
+        tour.setVertex(tourI++, path[i]);
+    for (let i = hi; i < tour.N; i++)
+        tour.setVertex(tourI++, path[i]);
+};

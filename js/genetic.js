@@ -132,6 +132,9 @@ $(function () {
             case "reverse":
                 tsp.setMutation(new ReverseMutation());
                 break;
+            case "segment":
+                tsp.setMutation(new SegmentMutation());
+                break;
             default:
                 throw "Mutation is not chosen";
         }
