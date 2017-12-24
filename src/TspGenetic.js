@@ -19,11 +19,17 @@ function Tour(tourManager) {
     this._tourManager = tourManager;
     this._tour = new Array(tourManager.N);
     this._distance = 0; //cache
+
+    Object.defineProperty(this, "N", {
+        get: function () {
+            return this._tour.length;
+        }
+    });
 }
 
 Tour.prototype = {
     generateTour: function () {
-        for (let i = 0; i < this._tourManager.N; i++)
+        for (let i = 0; i < this.N; i++)
             this._tour[i] = i;
         this._tour.shuffle();
     },
@@ -43,9 +49,9 @@ Tour.prototype = {
 
     getDistance: function () {
         if (this._distance == 0) {
-            for (let i = 0; i < this._tourManager.N - 1; i++)
+            for (let i = 0; i < this.N - 1; i++)
                 this._distance += this._tourManager.distance(this._tour[i], this._tour[i + 1]);
-            this._distance += this._tourManager.distance(this._tour[this._tourManager.N - 1], this._tour[0]);
+            this._distance += this._tourManager.distance(this._tour[this.N - 1], this._tour[0]);
         }
         return this._distance;
     },
@@ -167,7 +173,7 @@ TspGenetic.prototype = {
     },
 
     _mutate: function (tour) {
-        this._mutationStrategy.exec(tour, this._tourManager);
+        this._mutationStrategy.exec(tour);
     },
 
     setSelection: function (strategy) {

@@ -129,6 +129,9 @@ $(function () {
             case "no":
                 tsp.setMutation(new NoMutationStrategy());
                 break;
+            case "reverse":
+                tsp.setMutation(new ReverseMutation());
+                break;
             default:
                 throw "Mutation is not chosen";
         }
