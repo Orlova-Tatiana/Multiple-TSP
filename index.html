@@ -25,7 +25,7 @@
 
 <div class="row">
     <div class="col-auto">
-        <canvas id="canvas" width="800" height="600" style="border: 1px solid black"></canvas>
+        <canvas id="canvas" width="800" height="600" style="border: 1px solid ; border-radius: 20px"></canvas>
     </div>
     <div class="col d-flex align-items-start flex-column">
         <div class="row">
@@ -43,6 +43,12 @@
                     </label>
                     <label class="form-check-label col">
                         <input type="radio" class="form-check-input" value="200" name="points"> 200
+                    </label>
+                    <label class="form-check-label col">
+                        <input type="radio" class="form-check-input" value="500" name="points"> 500
+                    </label>
+                    <label class="form-check-label col">
+                        <input type="radio" class="form-check-input" value="1000" name="points"> 1000
                     </label>
                 </div>
             </fieldset>
@@ -111,9 +117,11 @@
 <div class="row" id="stat">
     <div class="col-12">
         <span>Итерация: </span>
-        <span id="stat-iter"></span>
-        <span>; Расстояние: </span>
-        <span id="stat-dist"></span>
+        <span id="stat-iter"></span>;
+        <span style="font-weight: bold"> Расстояние: </span>
+        <span style="font-weight: bold" id="stat-dist"></span>;
+        <span> Среднее&nbsp;расстояние: </span>
+        <span id="stat-aver-dist"></span>
     </div>
 </div>
 

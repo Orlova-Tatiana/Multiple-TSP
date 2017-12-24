@@ -147,9 +147,28 @@ $(function () {
             graphDrawer.drawPath(points, tour.getPath());
             loopId = setTimeout(next, 0);
 
-            $("#stat-iter").text(tsp.iteration());
-            $("#stat-dist").text(tour.getDistance());
+            printStatistics();
         }, 0);
+    }
+
+    function printStatistics() {
+        $("#stat-iter").text(tsp.iteration());
+        $("#stat-dist").text(tsp.getBestTour().getDistance().round(3));
+        $("#stat-aver-dist").text(getAverageDist().round(3));
+    }
+
+    function getAverageDist() {
+        if ((tsp.iteration() - 1) % 10 != 0)
+            return getAverageDist.aver; //cache
+
+        let population = tsp.getPopulation();
+        let sum = 0;
+        for (let i = 0; i < population.size; i++)
+            sum += population.getTour(i).getDistance();
+
+        let aver = sum / population.size;
+        getAverageDist.aver = aver;
+        return aver;
     }
 
     function stop() {

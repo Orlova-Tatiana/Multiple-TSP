@@ -193,6 +193,10 @@ TspGenetic.prototype = {
             this._bestTour = tour;
     },
 
+    getPopulation: function () {
+        return this._population;
+    },
+
     getBestTour: function () {
         return this._bestTour;
     },

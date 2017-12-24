@@ -10,3 +10,7 @@ Number.randomInt = function (min, max) {
     rand = Math.floor(rand);
     return rand;
 };
+
+Number.prototype.round = function (precision) {
+    return Math.round(this * Math.pow(10, precision)) / Math.pow(10, precision);
+};
