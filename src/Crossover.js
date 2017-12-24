@@ -5,6 +5,12 @@ function SegmentCrossoverStrategy() {
 }
 
 SegmentCrossoverStrategy.prototype.exec = function (parent1, parent2, tourManager) {
+    let child1 = this._crossover(parent1, parent2, tourManager);
+    let child2 = this._crossover(parent2, parent1, tourManager);
+    return [child1, child2];
+};
+
+SegmentCrossoverStrategy.prototype._crossover = function (parent1, parent2, tourManager) {
     let lo = Number.randomInt(0, tourManager.N - 1);
     let hi = Number.randomInt(0, tourManager.N - 1);
     [lo, hi] = [Math.min(lo, hi), Math.max(lo, hi)];
@@ -32,6 +38,12 @@ function RandomHalfCrossoverStrategy() {
 }
 
 RandomHalfCrossoverStrategy.prototype.exec = function (parent1, parent2, tourManager) {
+    let child1 = this._crossover(parent1, parent2, tourManager);
+    let child2 = this._crossover(parent2, parent1, tourManager);
+    return [child1, child2];
+};
+
+RandomHalfCrossoverStrategy.prototype._crossover = function (parent1, parent2, tourManager) {
     let child = new Tour(tourManager);
 
     for (let i = 0; i < tourManager.N; i++) {
@@ -52,11 +64,17 @@ RandomHalfCrossoverStrategy.prototype.exec = function (parent1, parent2, tourMan
     return child;
 };
 
-function NextCrossoverStrategy() {
+function NextPrevCrossoverStrategy() {
 
 }
 
-NextCrossoverStrategy.prototype.exec = function (parent1, parent2, tourManager) {
+NextPrevCrossoverStrategy.prototype.exec = function (parent1, parent2, tourManager) {
+    let child1 = this._crossover(parent1, parent2, tourManager, this._next);
+    let child2 = this._crossover(parent1, parent2, tourManager, this._prev);
+    return [child1, child2];
+};
+
+NextPrevCrossoverStrategy.prototype._crossover = function (parent1, parent2, tourManager, move) {
     let child = new Tour(tourManager);
     let path1 = parent1.getPath();
     let path2 = parent2.getPath();
@@ -66,8 +84,8 @@ NextCrossoverStrategy.prototype.exec = function (parent1, parent2, tourManager) 
     child.setVertex(childI++, c);
 
     while (path1.length > 1) {
-        let v1 = this._next(path1, c);
-        let v2 = this._next(path2, c);
+        let v1 = move(path1, c);
+        let v2 = move(path2, c);
         this._remove(path1, c);
         this._remove(path2, c);
         c = tourManager.distance(c, v1) < tourManager.distance(c, v2) ? v1 : v2;
@@ -78,13 +96,21 @@ NextCrossoverStrategy.prototype.exec = function (parent1, parent2, tourManager) 
     return child;
 };
 
-NextCrossoverStrategy.prototype._next = function (arr, value) {
+NextPrevCrossoverStrategy.prototype._next = function (arr, value) {
     let i = arr.indexOf(value);
     if (i == -1)
         return -1;
     return arr[(i + 1) % arr.length];
 };
 
-NextCrossoverStrategy.prototype._remove = function (arr, value) {
+NextPrevCrossoverStrategy.prototype._prev = function (arr, value) {
+    let i = arr.indexOf(value);
+    i = i - 1;
+    if (i == -1)
+        i = arr.length - 1;
+    return arr[i];
+};
+
+NextPrevCrossoverStrategy.prototype._remove = function (arr, value) {
     arr.splice(arr.indexOf(value), 1);
 };

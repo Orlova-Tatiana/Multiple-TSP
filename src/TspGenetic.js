@@ -105,6 +105,7 @@ function TspGenetic(tourManager, options = {elitism: true, populationSize: 30}) 
     this._tourManager = tourManager;
     this._population = this._generatePopulation(options.populationSize);
     this._iter = 0;
+    this._bestTour = this._population.getFittest();
 
     this._selectionStrategy = null;
     this._crossoverStrategy = null;
@@ -130,20 +131,31 @@ TspGenetic.prototype = {
             offset = 1;
         }
 
-        for (let i = offset; i < population.size; i++) {
-            let parent1 = this._selection(population);
-            let parent2 = parent1;
-            while (parent1 === parent2)
-                parent2 = this._selection(population);
+        for (let i = offset; i < population.size; i++)
+            newPopulation.saveTour(i, this._selection(population));
 
-            let child = this._crossover(parent1, parent2);
-            newPopulation.saveTour(i, child);
+        let queue = this._randomInterval(population.size);
+        for (let i = 0; i < queue.length - 1; i += 2) {
+            let parent1 = newPopulation.getTour(queue[i]);
+            let parent2 = newPopulation.getTour(queue[i + 1]);
+            let children = this._crossover(parent1, parent2);
+            newPopulation.saveTour(queue[i], children[0]);
+            newPopulation.saveTour(queue[i + 1], children[1]);
         }
 
         for (let i = offset; i < newPopulation.size; i++)
             this._mutate(newPopulation.getTour(i));
 
+        this._saveBestTour(newPopulation.getFittest());
         return newPopulation;
+    },
+
+    _randomInterval: function (n) {
+        let arr = new Array(n);
+        for (let i = 0; i < n; i++)
+            arr[i] = i;
+        arr.shuffle();
+        return arr;
     },
 
     _selection: function (population) {
@@ -170,8 +182,13 @@ TspGenetic.prototype = {
         this._mutationStrategy = strategy;
     },
 
+    _saveBestTour: function (tour) {
+        if (tour.getDistance() < this._bestTour.getDistance())
+            this._bestTour = tour;
+    },
+
     getBestTour: function () {
-        return this._population.getFittest();
+        return this._bestTour;
     },
 
     getTourManager: function () {
