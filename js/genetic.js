@@ -8,6 +8,7 @@ $(function () {
     setupListeners();
 
     function setupListeners() {
+        //CONTROLS
         let startButton = $("#start");
 
         let onStart = function () {
@@ -36,21 +37,36 @@ $(function () {
             onStop();
             reset();
 
+            onChoosePoints();
             startButton.val("Start");
-            graphDrawer.clear();
+            graphDrawer.drawPoints(points);
             $("#stat").hide();
         };
 
         startButton.click(onStart);
         $("#reset").click(onReset);
 
+        //STATISTICS
         $("#stat").hide();
+
+        //POINTS
+        let onChoosePoints = function () {
+            if (!loopId) {
+                let size = $($("[name='points']:checked")).val();
+                if (!points || points.length != size) {
+                    points = generatePoints(size);
+                    graphDrawer.drawPoints(points);
+                }
+            }
+        };
+
+        $("[name='points']").click(onChoosePoints);
+        onChoosePoints();
     }
 
     function init(size) {
         reset();
 
-        points = generatePoints(size);
         let matrix = MatrixConverter.toDistMatrix(points);
         let tourManager = new TourManager(matrix);
         tsp = new TspGenetic(tourManager, getOptions());
@@ -60,7 +76,6 @@ $(function () {
     }
 
     function reset() {
-        points = null;
         tsp = null;
     }
 
@@ -109,7 +124,7 @@ $(function () {
         let name = $("#mutation").find(":selected").val();
         switch (name) {
             case "fisher":
-                tsp.setMutation(new FisherYatesMutationStrategy(0.03));
+                tsp.setMutation(new FisherYatesMutationStrategy());
                 break;
             case "no":
                 tsp.setMutation(new NoMutationStrategy());
@@ -123,7 +138,7 @@ $(function () {
         loopId = setTimeout(function next() {
             tsp.evolve();
             let tour = tsp.getBestTour();
-            graphDrawer.draw(rearrangePath(points, tour.getPath()));
+            graphDrawer.drawPath(points, tour.getPath());
             loopId = setTimeout(next, 0);
 
             $("#stat-iter").text(tsp.iteration());
@@ -133,6 +148,7 @@ $(function () {
 
     function stop() {
         clearTimeout(loopId);
+        loopId = null;
     }
 
     function generatePoints(n) {
@@ -140,14 +156,6 @@ $(function () {
         let width = canvas.width;
         let height = canvas.height;
         return PointsGenerator.generate(n, 5, width - 5, 5, height - 5);
-    }
-
-    function rearrangePath(points, index) {
-        let newPoints = new Array(index.length);
-        for (let i = 0; i < index.length; i++) {
-            newPoints[i] = points[index[i]];
-        }
-        return newPoints;
     }
 
 });
@@ -184,15 +192,28 @@ function GraphDrawer(canvas) {
         context.stroke();
     }
 
+    function rearrangePath(points, path) {
+        let newPoints = new Array(path.length);
+        for (let i = 0; i < path.length; i++) {
+            newPoints[i] = points[path[i]];
+        }
+        return newPoints;
+    }
+
     function clear() {
         context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     //API
-    this.draw = function (points) {
+    this.drawPoints = function (points) {
         clear();
         drawPoints(points);
-        drawPath(points);
+    };
+
+    this.drawPath = function (points, path) {
+        clear();
+        drawPoints(points);
+        drawPath(rearrangePath(points, path));
     };
 
     this.clear = clear;
