@@ -132,7 +132,10 @@ TspGenetic.prototype = {
 
         for (let i = offset; i < population.size; i++) {
             let parent1 = this._selection(population);
-            let parent2 = this._selection(population);
+            let parent2 = parent1;
+            while (parent1 === parent2)
+                parent2 = this._selection(population);
+
             let child = this._crossover(parent1, parent2);
             newPopulation.saveTour(i, child);
         }
