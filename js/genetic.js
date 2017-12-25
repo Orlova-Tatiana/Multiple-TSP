@@ -182,6 +182,7 @@ $(function () {
         $("#stat-change_count").text(getChanges());
         $("#stat-no_change").text(getNoChange());
         $("#stat-same_path").text(getSameToursCount());
+        $("#stat-mutations").text(tsp.mutationCount());
     }
 
     function getAverageDist() {
