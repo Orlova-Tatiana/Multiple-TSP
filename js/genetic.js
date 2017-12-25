@@ -99,6 +99,8 @@ $(function () {
         delete getChanges.count;
         delete getNoChange.best;
         delete getNoChange.iter;
+        delete getSameToursCount.time;
+        delete getSameToursCount.count;
     }
 
     function getOptions() {
@@ -179,6 +181,7 @@ $(function () {
         $("#stat-aver_dist").text(getAverageDist().print());
         $("#stat-change_count").text(getChanges());
         $("#stat-no_change").text(getNoChange());
+        $("#stat-same_path").text(getSameToursCount());
     }
 
     function getAverageDist() {
@@ -198,7 +201,6 @@ $(function () {
     }
 
     function getChanges() {
-        console.log("HERE");
         if (!getChanges.best) {
             getChanges.best = tsp.getBestTour();
             getChanges.count = 1;
@@ -220,6 +222,25 @@ $(function () {
         }
 
         return tsp.iteration() - getNoChange.iter;
+    }
+
+    function getSameToursCount() {
+        if (getSameToursCount.time && performance.now() - getSameToursCount.time < 100) {
+            return getSameToursCount.count; //return every 100 ms
+        }
+
+        let population = tsp.getPopulation();
+        let set = new Set();
+
+        for (let i = 0; i < population.size; i++) {
+            let tour = population.getTour(i);
+            set.add(tour.toString());
+        }
+
+        let same = population.size - set.size;
+        getSameToursCount.count = same;
+        getSameToursCount.time = performance.now();
+        return same;
     }
 
     function stop() {
