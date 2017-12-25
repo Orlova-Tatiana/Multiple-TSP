@@ -126,9 +126,9 @@ function TspGenetic(tourManager, options) {
 TspGenetic.prototype = {
     _setDefault: function (options) {
         options || (options = {});
-        options.elitism || (options.elitism = true);
-        options.populationSize || (options.populationSize = 30);
-        options.mutationRate || (options.mutationRate = 0.015);
+        options.elitism !== undefined || (options.elitism = true);
+        options.populationSize !== undefined || (options.populationSize = 30);
+        options.mutationRate !== undefined || (options.mutationRate = 0.015);
         return options;
     },
 
