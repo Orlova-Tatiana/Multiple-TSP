@@ -167,13 +167,20 @@ $(function () {
     }
 
     function start() {
+        let bestTour = null;
+
         loopId = setTimeout(function next() {
             tsp.evolve();
             let tour = tsp.getBestTour();
-            graphDrawer.drawPath(points, tour.getPath());
-            loopId = setTimeout(next, 0);
+
+            if (bestTour !== tour) { //optimize drawing
+                bestTour = tour;
+                graphDrawer.drawPath(points, tour.getPath());
+            }
 
             printStatistics();
+
+            loopId = setTimeout(next, 0);
         }, 0);
     }
 
