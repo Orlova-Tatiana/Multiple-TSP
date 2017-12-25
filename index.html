@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>Genetic</title>
     <link rel="stylesheet" href="lib/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/formhelper/bootstrap-formhelpers.min.css">
+    <link rel="stylesheet" href="lib/slider/rangeslider.css">
     <script src="lib/jquery-3.2.1.min.js"></script>
-    <script src="lib/formhelper/bootstrap-formhelpers.js"></script>
+    <script src="lib/slider/rangeslider.min.js"></script>
 
     <script src="src/util.js"></script>
     <script src="src/PointsGenerator.js"></script>
@@ -21,7 +21,7 @@
 
 <body class="container p-0">
 
-<h1 class="text-center mt-2 mb-4">TSP: Genetic algorithm</h1>
+<h2 class="text-center mt-2 mb-4">TSP: Genetic algorithm</h2>
 
 <div class="row">
     <div class="col-auto">
@@ -66,8 +66,9 @@
         <div class="row w-100">
             <div class="form-group w-100">
                 <label>Population</label>
-                <div class="bfh-slider" id="population" data-name="population" data-min="10" data-max="200"
-                     data-value="30"></div>
+                <span style="font-weight: bolder">=</span>
+                <span style="font-weight: bolder" id="population-hint">30</span>
+                <input type="range" id="population" min="10" max="200" value="30">
             </div>
         </div>
 
@@ -106,9 +107,10 @@
 
         <div class="row w-100">
             <div class="form-group w-100">
-                <label>Mutation rate (multiplied by 1000)</label>
-                <div class="bfh-slider" id="mutation_rate" data-name="population" data-min="0" data-max="1000"
-                     data-value="15"></div>
+                <label>Mutation rate</label>
+                <span style="font-weight: bolder">=</span>
+                <span style="font-weight: bolder" id="mutation_rate-hint">0.015</span>
+                <input type="range" id="mutation_rate" min="0" max="0.5" step="0.005" value="0.015">
             </div>
         </div>
 
@@ -147,6 +149,16 @@
 
     </div>
 </div>
+
+<script>
+    $('input[type="range"]').rangeslider({
+        polyfill: false,
+        onSlide: function (pos, value) {
+            let id = this.$element.attr("id") + "-hint";
+            $("#" + id).text(value);
+        }
+    });
+</script>
 
 </body>
 

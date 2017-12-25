@@ -106,7 +106,7 @@ $(function () {
     function getOptions() {
         let elitism = $("#elitism").is(":checked");
         let populationSize = +$("#population").val();
-        let mutationRate = +$("#mutation_rate").val() / 1000;
+        let mutationRate = +$("#mutation_rate").val();
 
         return {
             elitism: elitism,
