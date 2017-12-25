@@ -13,8 +13,7 @@ $(function () {
 
         let onStart = function () {
             if (!tsp) {
-                let size = $("[name='points']:checked").val();
-                init(size);
+                init();
             }
 
             start();
@@ -64,7 +63,7 @@ $(function () {
         onChoosePoints();
     }
 
-    function init(size) {
+    function init() {
         reset();
 
         let matrix = MatrixConverter.toDistMatrix(points);
@@ -77,6 +76,13 @@ $(function () {
 
     function reset() {
         tsp = null;
+
+        //remove cache
+        delete getAverageDist.aver;
+        delete getChanges.best;
+        delete getChanges.count;
+        delete getNoChange.best;
+        delete getNoChange.iter;
     }
 
     function getOptions() {
@@ -154,12 +160,14 @@ $(function () {
     function printStatistics() {
         $("#stat-iter").text(tsp.iteration());
         $("#stat-dist").text(tsp.getBestTour().getDistance().round(3));
-        $("#stat-aver-dist").text(getAverageDist().round(3));
+        $("#stat-aver_dist").text(getAverageDist().round(3));
+        $("#stat-change_count").text(getChanges());
+        $("#stat-no_change").text(getNoChange());
     }
 
     function getAverageDist() {
         if ((tsp.iteration() - 1) % 10 != 0)
-            return getAverageDist.aver; //cache
+            return getAverageDist.aver; //print every 10 times
 
         let population = tsp.getPopulation();
         let sum = 0;
@@ -169,6 +177,31 @@ $(function () {
         let aver = sum / population.size;
         getAverageDist.aver = aver;
         return aver;
+    }
+
+    function getChanges() {
+        console.log("HERE");
+        if (!getChanges.best) {
+            getChanges.best = tsp.getBestTour();
+            getChanges.count = 1;
+            return 1;
+        }
+
+        if (getChanges.best !== tsp.getBestTour()) {
+            getChanges.best = tsp.getBestTour();
+            getChanges.count++;
+        }
+        return getChanges.count;
+    }
+
+    function getNoChange() {
+        if (!getNoChange.best || getNoChange.best !== tsp.getBestTour()) {
+            getNoChange.best = tsp.getBestTour();
+            getNoChange.iter = tsp.iteration();
+            return 0;
+        }
+
+        return tsp.iteration() - getNoChange.iter;
     }
 
     function stop() {
