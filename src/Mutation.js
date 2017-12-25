@@ -1,6 +1,6 @@
 "use strict";
 
-function FisherYatesMutationStrategy(mutationRate = 0.015) {
+function FisherYatesMutationStrategy(mutationRate = 0.1) {
     this._mutationRate = mutationRate;
 }
 
@@ -29,16 +29,10 @@ NoMutationStrategy.prototype.exec = function () {
     //does nothing
 };
 
-function ReverseMutation(mutationRate = 0.015) {
-    this._mutationRate = mutationRate;
+function ReverseMutation() {
 }
 
 ReverseMutation.prototype.exec = function (tour) {
-    if (Math.random() < this._mutationRate)
-        this._mutate(tour);
-};
-
-ReverseMutation.prototype._mutate = function (tour) {
     let lo, hi;
     do {
         lo = Number.randomInt(0, tour.N - 3);
@@ -57,8 +51,7 @@ ReverseMutation.prototype._swap = function (tour, i, j) {
     tour.setVertex(j, v1);
 };
 
-function SegmentMutation(mutationRate = 0.015) {
-    this._mutationRate = mutationRate;
+function SegmentMutation() {
 }
 
 SegmentMutation.prototype.exec = function (tour) {

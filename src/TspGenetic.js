@@ -106,12 +106,16 @@ Population.prototype = {
     }
 };
 
-function TspGenetic(tourManager, options = {elitism: true, populationSize: 30}) {
+function TspGenetic(tourManager, options = {elitism: true, populationSize: 30, mutationRate: 0.15}) {
     this._elitism = options.elitism;
+    this._mutationRate = options.mutationRate;
+
     this._tourManager = tourManager;
     this._population = this._generatePopulation(options.populationSize);
-    this._iter = 0;
     this._bestTour = this._population.getFittest();
+
+    this._iter = 0;
+    this._mutationCount = 0;
 
     this._selectionStrategy = null;
     this._crossoverStrategy = null;
@@ -173,7 +177,10 @@ TspGenetic.prototype = {
     },
 
     _mutate: function (tour) {
-        this._mutationStrategy.exec(tour);
+        if (Math.random() < this._mutationRate) {
+            this._mutationStrategy.exec(tour);
+            this._mutationCount++;
+        }
     },
 
     setSelection: function (strategy) {
@@ -208,4 +215,8 @@ TspGenetic.prototype = {
     iteration: function () {
         return this._iter;
     },
+
+    mutationCount: function () {
+        return this._mutationCount;
+    }
 };
