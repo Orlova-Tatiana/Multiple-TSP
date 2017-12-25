@@ -6,7 +6,7 @@ function FisherYatesMutationStrategy(mutationRate = 0.1) {
 
 FisherYatesMutationStrategy.prototype.exec = function (tour) {
     //Fisher-Yates shuffle
-    for (let i = tour.N; i > 0; i--) {
+    for (let i = tour.N - 1; i > 0; i--) {
         if (Math.random() < this._mutationRate) {
             let j = Number.randomInt(0, i);
             this._swap(tour, i, j);
