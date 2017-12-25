@@ -76,6 +76,7 @@ $(function () {
 
     function reset() {
         tsp = null;
+        loopId = null;
 
         //remove cache
         delete getAverageDist.aver;
@@ -206,7 +207,6 @@ $(function () {
 
     function stop() {
         clearTimeout(loopId);
-        loopId = null;
     }
 
     function generatePoints(n) {
