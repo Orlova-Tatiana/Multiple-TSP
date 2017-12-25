@@ -1,3 +1,17 @@
+Number.prototype.print = function (precision = 3) {
+    let s = this.toString();
+    let point = s.indexOf(".");
+    let integer = point == -1 ? s : s.substring(0, point);
+
+    if (precision == 0)
+        return integer;
+
+    let fracture = point == -1 ? "" : s.substr(point + 1, Math.min(precision, s.length - point - 1));
+    s = integer + "." + fracture;
+    let zeroes = "0".repeat(precision - fracture.length);
+    return s + zeroes;
+};
+
 $(function () {
 
     let graphDrawer = new GraphDrawer($("#canvas")[0]);
@@ -80,6 +94,7 @@ $(function () {
 
         //remove cache
         delete getAverageDist.aver;
+        delete getAverageDist.time;
         delete getChanges.best;
         delete getChanges.count;
         delete getNoChange.best;
@@ -160,15 +175,16 @@ $(function () {
 
     function printStatistics() {
         $("#stat-iter").text(tsp.iteration());
-        $("#stat-dist").text(tsp.getBestTour().getDistance().round(3));
-        $("#stat-aver_dist").text(getAverageDist().round(3));
+        $("#stat-dist").text(tsp.getBestTour().getDistance().print());
+        $("#stat-aver_dist").text(getAverageDist().print());
         $("#stat-change_count").text(getChanges());
         $("#stat-no_change").text(getNoChange());
     }
 
     function getAverageDist() {
-        if ((tsp.iteration() - 1) % 10 != 0)
-            return getAverageDist.aver; //print every 10 times
+        if (getAverageDist.time && performance.now() - getAverageDist.time < 100) {
+            return getAverageDist.aver; //return every 100 ms
+        }
 
         let population = tsp.getPopulation();
         let sum = 0;
@@ -177,6 +193,7 @@ $(function () {
 
         let aver = sum / population.size;
         getAverageDist.aver = aver;
+        getAverageDist.time = performance.now();
         return aver;
     }
 
