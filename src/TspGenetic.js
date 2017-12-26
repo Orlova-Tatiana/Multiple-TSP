@@ -146,7 +146,7 @@ TspGenetic.prototype = {
 
         let offset = 0;
         if (this._elitism) {
-            newPopulation.saveTour(0, population.getFittest());
+            newPopulation.saveTour(0, this._bestTour);
             offset = 1;
         }
 
