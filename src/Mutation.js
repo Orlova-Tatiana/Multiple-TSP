@@ -21,14 +21,6 @@ FisherYatesMutationStrategy.prototype._swap = function (tour, i, j) {
     tour.setVertex(j, v1);
 };
 
-function NoMutationStrategy() {
-
-}
-
-NoMutationStrategy.prototype.exec = function () {
-    //does nothing
-};
-
 function ReverseMutation() {
 }
 

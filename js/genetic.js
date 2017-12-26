@@ -150,9 +150,6 @@ $(function () {
             case "fisher":
                 tsp.setMutation(new FisherYatesMutationStrategy());
                 break;
-            case "no":
-                tsp.setMutation(new NoMutationStrategy());
-                break;
             case "reverse":
                 tsp.setMutation(new ReverseMutation());
                 break;
