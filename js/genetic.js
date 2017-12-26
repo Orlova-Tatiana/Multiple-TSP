@@ -42,7 +42,7 @@ $(function () {
             stop();
 
             startButton.val("Continue");
-            startButton.off("click", onStop);
+            startButton.off("click");
             startButton.click(onStart);
         };
 
@@ -78,8 +78,6 @@ $(function () {
     }
 
     function init() {
-        reset();
-
         let matrix = MatrixConverter.toDistMatrix(points);
         let tourManager = new TourManager(matrix);
         tsp = new TspGenetic(tourManager, getOptions());
@@ -169,7 +167,7 @@ $(function () {
     function start() {
         let bestTour = null;
 
-        loopId = setTimeout(function next() {
+        (function next() {
             tsp.evolve();
             let tour = tsp.getBestTour();
 
@@ -181,7 +179,7 @@ $(function () {
             printStatistics();
 
             loopId = setTimeout(next, 0);
-        }, 0);
+        })();
     }
 
     function printStatistics() {
