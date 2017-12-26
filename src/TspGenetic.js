@@ -66,6 +66,12 @@ Tour.prototype = {
 
     toString: function () {
         return this._tour.join("|");
+    },
+
+    clone: function () {
+        let copy = new Tour(this._tourManager);
+        copy._tour = this._tour.slice();
+        return copy;
     }
 };
 
@@ -162,10 +168,11 @@ TspGenetic.prototype = {
             newPopulation.saveTour(queue[i + 1], children[1]);
         }
 
-        for (let i = offset; i < newPopulation.size; i++)
+        this._saveBestTour(newPopulation.getFittest());
+
+        for (let i = 0; i < newPopulation.size; i++)
             this._mutate(newPopulation.getTour(i));
 
-        this._saveBestTour(newPopulation.getFittest());
         return newPopulation;
     },
 
@@ -206,7 +213,7 @@ TspGenetic.prototype = {
 
     _saveBestTour: function (tour) {
         if (tour.getDistance() < this._bestTour.getDistance())
-            this._bestTour = tour;
+            this._bestTour = tour.clone();
     },
 
     getPopulation: function () {

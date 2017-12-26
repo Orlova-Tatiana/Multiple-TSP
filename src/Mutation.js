@@ -1,6 +1,6 @@
 "use strict";
 
-function FisherYatesMutationStrategy(mutationRate = 0.1) {
+function FisherYatesMutationStrategy(mutationRate = 0.05) {
     this._mutationRate = mutationRate;
 }
 
