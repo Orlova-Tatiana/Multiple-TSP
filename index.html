@@ -4,19 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Genetic</title>
-    <link rel="stylesheet" href="lib/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/slider/rangeslider.css">
-    <script src="lib/jquery-3.2.1.min.js"></script>
-    <script src="lib/slider/rangeslider.min.js"></script>
+    <link rel="stylesheet" href="resources/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/slider/rangeslider.css">
+    <script src="resources/jquery-3.2.1.min.js"></script>
+    <script src="resources/slider/rangeslider.min.js"></script>
 
-    <script src="src/util.js"></script>
-    <script src="src/PointsGenerator.js"></script>
-    <script src="src/MatrixConverter.js"></script>
-    <script src="src/TspGenetic.js"></script>
-    <script src="src/Selection.js"></script>
-    <script src="src/Crossover.js"></script>
-    <script src="src/Mutation.js"></script>
-    <script src="js/genetic.js"></script>
+    <script src="bundle.js"></script>
 </head>
 
 <body class="container p-0">
@@ -87,8 +80,8 @@
                 <legend>Crossover</legend>
                 <select class="form-control" id="crossover">
                     <option value="segment">Segment</option>
-                    <option value="random_half">Random Half</option>
-                    <option selected value="prev_next">Previous/Next</option>
+                    <option value="random-half">Random Half</option>
+                    <option selected value="next-prev">Previous/Next</option>
                 </select>
             </div>
         </div>
@@ -97,7 +90,7 @@
             <div class="form-group">
                 <legend>Mutation</legend>
                 <select class="form-control" id="mutation">
-                    <option value="fisher">Fisher Yates</option>
+                    <option value="fisher-yates">Fisher Yates</option>
                     <option selected value="reverse">Reverse</option>
                     <option value="segment">Segment</option>
                 </select>

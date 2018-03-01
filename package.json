@@ -1,0 +1,35 @@
+{
+  "name": "tsp",
+  "version": "0.1.0",
+  "description": "Travelling salesman problem",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint",
+    "build": "webpack -p",
+    "build-dev": "webpack -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitriy-kiselyov/Multiple-TSP.git"
+  },
+  "keywords": [
+    "tsp",
+    "travelling-salesman-problem",
+    "genetic-algorithm"
+  ],
+  "author": "dmitriy.penetrator@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dmitriy-kiselyov/Multiple-TSP/issues"
+  },
+  "homepage": "https://github.com/Dmitriy-kiselyov/Multiple-TSP#readme",
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-gemini-testing": "^2.7.0",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
