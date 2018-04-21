@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: './lib/static/genetic.js',
+    entry: './lib/react/index.js',
     output: {
         filename: 'bundle.js',
         path: __dirname
@@ -23,12 +23,17 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.js$/,
+                use: 'babel-loader',
+                exclude: /node_modules/
             }
         ]
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: './lib/static/index.html',
+            template: './lib/react/index.html',
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
