@@ -5,9 +5,13 @@
   "scripts": {
     "lint": "eslint .",
     "test": "npm run lint",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "build": "webpack -p",
-    "build-dev": "webpack -d"
+    "build-dev": "webpack -d",
+    "watch": "webpack-dev-server --mode development",
+    "make-website": "npm run build && git add index.html bundle.js bundle.css"
   },
+  "pre-commit": ["precommit-msg", "lint", "make-website"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dmitriy-kiselyov/Multiple-TSP.git"
@@ -24,10 +28,16 @@
   },
   "homepage": "https://github.com/Dmitriy-kiselyov/Multiple-TSP#readme",
   "devDependencies": {
+    "css-loader": "^0.28.11",
     "eslint": "^4.18.1",
     "eslint-config-gemini-testing": "^2.7.0",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9"
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "pre-commit": "^1.2.2",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.9",
+    "webpack-dev-server": "^3.1.3"
   },
   "dependencies": {
     "jquery": "^3.3.1"
