@@ -1,0 +1,300 @@
+{"populationSize":30,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+29518 29518 28553 28553 27341 26134 25955 25760
+{"populationSize":30,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+25925 12206 9033 8687 6853 5991 5952 5952
+{"populationSize":30,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+28246 26026 26026 26026 26026 26026 26026 25994
+{"populationSize":30,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+29198 15032 8627 6911 6629 5451 5451 5451
+{"populationSize":30,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+31184 29409 29409 29409 29409 29409 28729 28729
+{"populationSize":30,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+29442 13442 7532 7532 6444 6444 5534 5534
+{"populationSize":30,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+24752 23750 23750 23750 23750 23593 23593 23593
+{"populationSize":30,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+28136 15757 8343 7845 6555 6555 5827 5748
+{"populationSize":30,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+27545 24738 24738 24738 24738 24701 24701 24701
+{"populationSize":30,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+28028 15190 8062 8062 6295 5626 5556 5493
+{"populationSize":30,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+31977 31977 31977 31977 31977 31977 31824 31296
+{"populationSize":30,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+28448 16032 9609 7375 7375 6309 6309 6176
+{"populationSize":30,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+27517 26726 26619 26619 25909 25909 25909 25688
+{"populationSize":30,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+29962 19325 9542 7312 7050 6206 5955 5955
+{"populationSize":30,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+34911 33608 33518 33518 33112 32776 32776 32776
+{"populationSize":30,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+27938 14304 7852 7360 5646 5646 5646 5646
+{"populationSize":30,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+25922 25591 25283 24881 24881 24862 24862 24862
+{"populationSize":30,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+30497 14591 9195 6467 6467 6467 6467 6280
+{"populationSize":30,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+32409 31102 29538 26868 26761 26101 24747 24555
+{"populationSize":30,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+38888 13722 9348 7429 6657 6049 6049 6049
+{"populationSize":30,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+25920 23376 23376 23376 23376 23376 23376 23376
+{"populationSize":30,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+26975 14868 8767 7755 6085 6085 6085 6085
+{"populationSize":30,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+26867 23907 23883 23883 23296 23152 21361 21361
+{"populationSize":30,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+36168 15757 7870 7115 6305 5659 5659 5659
+{"populationSize":30,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+27017 25618 24356 21565 19687 19103 18408 16840
+{"populationSize":30,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+34972 19679 8522 7846 7092 5842 5842 5689
+{"populationSize":30,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+31211 30858 30628 29822 29695 29670 29670 29423
+{"populationSize":30,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+28788 13226 9088 7073 7073 5344 5344 5317
+{"populationSize":30,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+30598 29577 28013 26566 23981 20910 19519 19040
+{"populationSize":30,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+33188 14913 10358 8012 7285 7166 7166 5742
+{"populationSize":50,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+26967 14884 14137 14137 14127 14072 14072 14072
+{"populationSize":50,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+43452 29261 9475 7289 6421 5601 5247 5247
+{"populationSize":50,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+26161 14864 12594 12594 12533 12533 12533 12533
+{"populationSize":50,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+46157 25567 10291 6491 6491 6258 5541 5541
+{"populationSize":50,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+29939 17026 15731 15731 15731 15731 15731 15731
+{"populationSize":50,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+44422 21437 7900 6760 6760 6760 6455 5282
+{"populationSize":50,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+27010 15617 13833 13833 13781 13561 13561 13561
+{"populationSize":50,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+41731 23903 8376 6554 5610 5610 5610 5610
+{"populationSize":50,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+28874 19537 18474 18474 18474 18474 18355 18355
+{"populationSize":50,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+42524 28852 9739 6389 6389 6389 6389 6389
+{"populationSize":50,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+28764 14971 12495 12333 12333 12333 12333 12333
+{"populationSize":50,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+36645 23630 8105 6619 6156 6156 5935 5482
+{"populationSize":50,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+30096 18501 15705 15705 15316 15316 15057 15057
+{"populationSize":50,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+43473 26349 10707 7534 6723 5823 5823 5823
+{"populationSize":50,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+27305 16323 16064 16064 16064 16064 16064 16064
+{"populationSize":50,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+43047 18846 7467 5945 5945 5945 5945 5945
+{"populationSize":50,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+27661 16891 15271 15271 14954 14954 14954 14954
+{"populationSize":50,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+44359 31710 9609 6357 5244 5244 5244 5244
+{"populationSize":50,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+25800 15609 13489 13426 13305 13305 13305 13305
+{"populationSize":50,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+40725 24788 11324 7302 6877 6877 6877 4940
+{"populationSize":50,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+28755 14478 12699 12699 12699 12699 12699 12699
+{"populationSize":50,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+39226 21812 10806 7577 6135 6135 5961 5961
+{"populationSize":50,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+23086 14738 12182 12182 12182 12150 12150 12150
+{"populationSize":50,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+38606 23324 10380 8834 5337 5337 5337 5337
+{"populationSize":50,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+28064 16965 14478 13042 13042 12441 12441 12441
+{"populationSize":50,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+38349 31683 9526 6876 4811 4811 4811 4811
+{"populationSize":50,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+27837 17750 14691 14465 14465 14465 14465 14465
+{"populationSize":50,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+42596 25565 9510 7972 5956 5873 5873 5873
+{"populationSize":50,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+24900 15211 12680 11738 11703 11662 11662 11662
+{"populationSize":50,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+38833 25153 9638 6403 5402 5402 5402 5402
+{"populationSize":100,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+45422 27582 10289 7340 7111 7111 7111 7111
+{"populationSize":100,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+52643 37378 17685 6976 6976 6976 6976 6605
+{"populationSize":100,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+45252 27009 10071 7394 7394 7394 7394 7394
+{"populationSize":100,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+54536 43701 20927 10188 5794 5794 5794 5563
+{"populationSize":100,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+45508 25288 9036 6932 6932 6832 6832 6832
+{"populationSize":100,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+57205 37829 17169 7784 7638 6938 6184 6184
+{"populationSize":100,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+44056 24632 10161 7474 7474 7361 7361 7361
+{"populationSize":100,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+54496 44194 21087 9213 7653 6746 6746 6553
+{"populationSize":100,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+44237 23525 9688 7510 7510 7510 7510 7510
+{"populationSize":100,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+53819 41689 21581 8563 7639 6377 6377 6377
+{"populationSize":100,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+46413 26602 8205 6049 6049 6049 6049 6049
+{"populationSize":100,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+58043 42777 20004 8498 5609 5490 5490 5358
+{"populationSize":100,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+44813 23274 8991 6815 6815 6815 6815 6815
+{"populationSize":100,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+57326 40288 20807 7852 6654 6058 6058 5651
+{"populationSize":100,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+46425 26283 7975 6575 6559 6559 6559 6559
+{"populationSize":100,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+59098 40267 20585 8913 6801 6098 6098 5402
+{"populationSize":100,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+45745 26958 8689 7212 6418 6418 6418 6418
+{"populationSize":100,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+55603 45689 20663 8012 6589 6589 5054 5054
+{"populationSize":100,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+45435 28719 9437 6880 6205 6205 6205 6205
+{"populationSize":100,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+57266 38160 18463 8587 7464 7132 7132 7132
+{"populationSize":100,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+49382 28395 8896 7121 7094 7094 7094 7094
+{"populationSize":100,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+50971 37626 19465 8514 7736 6497 6030 6030
+{"populationSize":100,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+45813 24064 8873 6789 6789 6789 6789 6789
+{"populationSize":100,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+58058 41761 21454 9491 6492 6337 6337 6337
+{"populationSize":100,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+43998 24163 11381 7362 7362 7362 6699 6699
+{"populationSize":100,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+59178 46626 22982 10455 6394 6394 6394 6394
+{"populationSize":100,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+44983 25598 8819 7281 6882 6882 6882 6882
+{"populationSize":100,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+55412 42217 20799 9520 7037 7037 5487 5487
+{"populationSize":100,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+43941 25062 9118 6714 6526 6526 6526 6526
+{"populationSize":100,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+57849 41396 18631 8027 7931 7478 6961 6426
+{"populationSize":150,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+62495 37486 14685 6763 5843 5843 5843 5843
+{"populationSize":150,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+72598 49452 31620 12835 7931 6828 6828 6050
+{"populationSize":150,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+66631 34355 15907 7714 6132 5740 5740 5740
+{"populationSize":150,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+72626 51341 32622 12816 9235 7790 7288 7288
+{"populationSize":150,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+64092 36795 15250 6554 5378 5378 5378 5378
+{"populationSize":150,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+72633 50674 30847 13176 8884 7529 7523 5947
+{"populationSize":150,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+64577 35154 13763 5718 4839 4839 4839 4839
+{"populationSize":150,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+69663 50373 28867 12572 7499 6308 6308 6308
+{"populationSize":150,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+64930 37600 13182 7248 5952 5823 5823 5823
+{"populationSize":150,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+66631 49048 29642 13082 8496 6702 6489 6489
+{"populationSize":150,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+60320 39434 15223 6751 5759 5572 5027 5027
+{"populationSize":150,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+72820 51040 29917 12735 9059 6478 6217 6217
+{"populationSize":150,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+64765 35569 13068 6917 5170 5170 5170 5170
+{"populationSize":150,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+75054 44416 30723 13904 8088 6868 5939 5844
+{"populationSize":150,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+64514 36596 13679 6453 5289 5289 5289 5289
+{"populationSize":150,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+72507 50889 29543 13754 9750 6960 6223 6223
+{"populationSize":150,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+65360 34110 16122 7075 5344 5344 5111 5111
+{"populationSize":150,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+72499 46877 30826 12614 8264 6724 6335 6264
+{"populationSize":150,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+56773 32825 14273 6807 5817 5539 5539 5515
+{"populationSize":150,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+74774 49821 34684 15464 8792 7016 7016 5554
+{"populationSize":150,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+60643 34438 13831 6671 4838 4737 4729 4729
+{"populationSize":150,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+74609 50123 29319 14713 9332 7930 6783 6564
+{"populationSize":150,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+65669 37570 14178 6514 5613 5246 5246 5246
+{"populationSize":150,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+72825 49102 31366 12950 8503 7708 7708 7708
+{"populationSize":150,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+64008 35339 13924 6373 5760 5407 5407 5407
+{"populationSize":150,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+71069 50748 34965 16685 11466 8609 6605 6562
+{"populationSize":150,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+63981 37638 14344 7574 6087 5007 5007 5007
+{"populationSize":150,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+71452 51447 28786 13501 7569 6543 5745 5745
+{"populationSize":150,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+60661 35674 14820 6021 5773 5495 5266 5266
+{"populationSize":150,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+69194 49521 36522 16883 11122 6922 6163 6163
+{"populationSize":200,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+77032 43203 22834 8338 5633 5019 4656 4656
+{"populationSize":200,"mutationRate":0,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+80373 52767 34476 21112 12451 8977 8101 7729
+{"populationSize":200,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+78163 45071 21932 8088 5782 5036 4705 4615
+{"populationSize":200,"mutationRate":0,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+77410 52956 34824 18147 10124 8548 7004 6025
+{"populationSize":200,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+67940 41102 20798 8332 5796 4830 4830 4830
+{"populationSize":200,"mutationRate":0,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+78569 55333 37264 23501 12623 9533 7717 7158
+{"populationSize":200,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+71597 43105 21869 8622 5524 5102 4856 4856
+{"populationSize":200,"mutationRate":0.01,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+79046 55934 39195 21807 10741 9075 7429 6861
+{"populationSize":200,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+73037 42376 21785 8661 5377 4813 4674 4674
+{"populationSize":200,"mutationRate":0.01,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+76571 51529 37847 22800 11203 10371 8378 7613
+{"populationSize":200,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+82733 45559 22433 8813 6382 4893 4817 4817
+{"populationSize":200,"mutationRate":0.01,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+76107 57361 37088 22319 12866 8737 8607 7118
+{"populationSize":200,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+71424 44797 21778 8462 5304 5304 4824 4748
+{"populationSize":200,"mutationRate":0.02,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+79575 54435 37077 21028 12385 8956 7356 7356
+{"populationSize":200,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+74852 42460 20008 8309 5555 5290 4529 4529
+{"populationSize":200,"mutationRate":0.02,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+79306 52738 40759 23480 11939 8735 7160 7160
+{"populationSize":200,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+72521 43968 21232 9915 5966 5451 5077 5077
+{"populationSize":200,"mutationRate":0.02,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+75836 54061 40111 22823 13041 8410 7015 6786
+{"populationSize":200,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+74231 43778 21091 7084 5681 4904 4794 4760
+{"populationSize":200,"mutationRate":0.05,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+82311 55941 36395 25188 15811 8837 7754 6748
+{"populationSize":200,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+73141 45759 21451 9865 6379 5122 5122 5122
+{"populationSize":200,"mutationRate":0.05,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+75600 57876 38131 18945 12991 10799 9201 7273
+{"populationSize":200,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+68301 41220 20870 8517 5680 5419 4917 4917
+{"populationSize":200,"mutationRate":0.05,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+83501 59085 35825 21095 11795 9024 7433 7099
+{"populationSize":200,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"tournament"}
+71632 41417 21545 8373 6367 5312 4576 4576
+{"populationSize":200,"mutationRate":0.1,"crossover":"next-prev","mutation":"reverse","selection":"roulette"}
+78352 58372 39711 23732 14081 8139 7377 7107
+{"populationSize":200,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"tournament"}
+75707 44777 20037 8684 5319 4934 4535 4535
+{"populationSize":200,"mutationRate":0.1,"crossover":"next-prev","mutation":"segment","selection":"roulette"}
+78760 53104 36912 19718 10030 7718 6729 6164
+{"populationSize":200,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"tournament"}
+70136 42331 19289 8698 5796 5200 4712 4569
+{"populationSize":200,"mutationRate":0.1,"crossover":"next-prev","mutation":"fisher-yates","selection":"roulette"}
+75842 55494 37926 22894 13756 9883 7144 7144
