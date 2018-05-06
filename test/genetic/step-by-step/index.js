@@ -14,13 +14,14 @@ const {optionsGenerator} = require('../utils');
 test();
 
 function test() {
-    const matrix = MatrixGenerator.generateNonInfMatrix(100, 1, 1000);
+    const matrix = MatrixGenerator.generateNonInfMatrix(200, 1, 1000);
     const tourManager = new TourManager(matrix);
 
     const options = {
         populationSize: [30, 50, 100, 150, 200],
         mutationRate: [0, 0.01, 0.02, 0.05, 0.1],
-        evolvePerStep: [1, 10, 50],
+        evolveFirstStep: [1, 50, 100, 300],
+        evolvePerStep: [1, 2, 5, 10],
         tournamentSize: [5]
     };
     const generator = optionsGenerator(options);
@@ -49,11 +50,10 @@ function testByStep(tsp, option) {
 
 function printByStep(option, distance, time) {
     const formattedTime = `${Math.floor(time / 1000)}s ${time % 1000}ms`;
-    const data = `${JSON.stringify(option)}
-    Distance: ${distance} ; Time: ${formattedTime}`;
+    const data = `${JSON.stringify(option)}\r\nDistance: ${distance} ; Time: ${formattedTime}`;
 
     try {
-        fs.appendFileSync('data.txt', `${data}\n`);
+        fs.appendFileSync('data.txt', `${data}\r\n`);
         console.log(data);
     } catch (e) {
         console.log(data);
@@ -73,9 +73,9 @@ function testGenetic(tsp, time) {
 }
 
 function printGenetic(distance) {
-    const data = `  Genetic: ${distance}`;
+    const data = `Genetic: ${distance}`;
     try {
-        fs.appendFileSync('data.txt', `${data}\n`);
+        fs.appendFileSync('data.txt', `${data}\r\n\r\n`);
         console.log(data);
     } catch (e) {
         console.log(data);
