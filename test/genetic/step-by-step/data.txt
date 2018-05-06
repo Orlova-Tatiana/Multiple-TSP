@@ -1,0 +1,225 @@
+{"populationSize":30,"mutationRate":0,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 11182 ; Time: 0s 266ms
+  Genetic: 5510
+{"populationSize":30,"mutationRate":0,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 8271 ; Time: 2s 344ms
+  Genetic: 5519
+{"populationSize":30,"mutationRate":0,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 8460 ; Time: 11s 460ms
+  Genetic: 4599
+{"populationSize":30,"mutationRate":0.01,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 11644 ; Time: 0s 235ms
+  Genetic: 4835
+{"populationSize":30,"mutationRate":0.01,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 8530 ; Time: 2s 328ms
+  Genetic: 4030
+{"populationSize":30,"mutationRate":0.01,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 8158 ; Time: 11s 484ms
+  Genetic: 3979
+{"populationSize":30,"mutationRate":0.02,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 11788 ; Time: 0s 234ms
+  Genetic: 5218
+{"populationSize":30,"mutationRate":0.02,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 9681 ; Time: 2s 309ms
+  Genetic: 4048
+{"populationSize":30,"mutationRate":0.02,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 4898 ; Time: 11s 534ms
+  Genetic: 3182
+{"populationSize":30,"mutationRate":0.05,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 8615 ; Time: 0s 235ms
+  Genetic: 4957
+{"populationSize":30,"mutationRate":0.05,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 7002 ; Time: 2s 328ms
+  Genetic: 4009
+{"populationSize":30,"mutationRate":0.05,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 6274 ; Time: 11s 592ms
+  Genetic: 3226
+{"populationSize":30,"mutationRate":0.1,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 9160 ; Time: 0s 235ms
+  Genetic: 4274
+{"populationSize":30,"mutationRate":0.1,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 5870 ; Time: 2s 359ms
+  Genetic: 3785
+{"populationSize":30,"mutationRate":0.1,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 4816 ; Time: 11s 780ms
+  Genetic: 3050
+{"populationSize":50,"mutationRate":0,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 12009 ; Time: 0s 375ms
+  Genetic: 4086
+{"populationSize":50,"mutationRate":0,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 5420 ; Time: 3s 813ms
+  Genetic: 3948
+{"populationSize":50,"mutationRate":0,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 5584 ; Time: 18s 993ms
+  Genetic: 3381
+{"populationSize":50,"mutationRate":0.01,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 6346 ; Time: 0s 390ms
+  Genetic: 3525
+{"populationSize":50,"mutationRate":0.01,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 5063 ; Time: 3s 843ms
+  Genetic: 3217
+{"populationSize":50,"mutationRate":0.01,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 5608 ; Time: 19s 78ms
+  Genetic: 3229
+{"populationSize":50,"mutationRate":0.02,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 5503 ; Time: 0s 406ms
+  Genetic: 4002
+{"populationSize":50,"mutationRate":0.02,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 5796 ; Time: 3s 968ms
+  Genetic: 3366
+{"populationSize":50,"mutationRate":0.02,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 4505 ; Time: 19s 344ms
+  Genetic: 3047
+{"populationSize":50,"mutationRate":0.05,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 6942 ; Time: 0s 391ms
+  Genetic: 3482
+{"populationSize":50,"mutationRate":0.05,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 6038 ; Time: 3s 891ms
+  Genetic: 3479
+{"populationSize":50,"mutationRate":0.05,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 4992 ; Time: 19s 328ms
+  Genetic: 2777
+{"populationSize":50,"mutationRate":0.1,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 5163 ; Time: 0s 406ms
+  Genetic: 3464
+{"populationSize":50,"mutationRate":0.1,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 4412 ; Time: 3s 922ms
+  Genetic: 3296
+{"populationSize":50,"mutationRate":0.1,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 4085 ; Time: 19s 593ms
+  Genetic: 2788
+{"populationSize":100,"mutationRate":0,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 5248 ; Time: 0s 796ms
+  Genetic: 3454
+{"populationSize":100,"mutationRate":0,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 4122 ; Time: 7s 672ms
+  Genetic: 2814
+{"populationSize":100,"mutationRate":0,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3230 ; Time: 37s 987ms
+  Genetic: 2716
+{"populationSize":100,"mutationRate":0.01,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3796 ; Time: 0s 938ms
+  Genetic: 3097
+{"populationSize":100,"mutationRate":0.01,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3840 ; Time: 7s 687ms
+  Genetic: 2753
+{"populationSize":100,"mutationRate":0.01,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3930 ; Time: 38s 266ms
+  Genetic: 2741
+{"populationSize":100,"mutationRate":0.02,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3643 ; Time: 0s 875ms
+  Genetic: 3470
+{"populationSize":100,"mutationRate":0.02,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3914 ; Time: 7s 734ms
+  Genetic: 2265
+{"populationSize":100,"mutationRate":0.02,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3909 ; Time: 38s 568ms
+  Genetic: 2815
+{"populationSize":100,"mutationRate":0.05,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3068 ; Time: 0s 875ms
+  Genetic: 3170
+{"populationSize":100,"mutationRate":0.05,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3680 ; Time: 7s 810ms
+  Genetic: 3024
+{"populationSize":100,"mutationRate":0.05,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3322 ; Time: 38s 895ms
+  Genetic: 2752
+{"populationSize":100,"mutationRate":0.1,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3511 ; Time: 0s 859ms
+  Genetic: 3232
+{"populationSize":100,"mutationRate":0.1,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3690 ; Time: 7s 908ms
+  Genetic: 3103
+{"populationSize":100,"mutationRate":0.1,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3667 ; Time: 39s 410ms
+  Genetic: 2480
+{"populationSize":150,"mutationRate":0,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3883 ; Time: 1s 219ms
+  Genetic: 2765
+{"populationSize":150,"mutationRate":0,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 4074 ; Time: 11s 546ms
+  Genetic: 2726
+{"populationSize":150,"mutationRate":0,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3799 ; Time: 57s 526ms
+  Genetic: 2475
+{"populationSize":150,"mutationRate":0.01,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 4118 ; Time: 1s 281ms
+  Genetic: 3036
+{"populationSize":150,"mutationRate":0.01,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3553 ; Time: 11s 615ms
+  Genetic: 3043
+{"populationSize":150,"mutationRate":0.01,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 4225 ; Time: 58s 29ms
+  Genetic: 2558
+{"populationSize":150,"mutationRate":0.02,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3207 ; Time: 1s 422ms
+  Genetic: 2918
+{"populationSize":150,"mutationRate":0.02,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3270 ; Time: 11s 627ms
+  Genetic: 2940
+{"populationSize":150,"mutationRate":0.02,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 2878 ; Time: 57s 540ms
+  Genetic: 2941
+{"populationSize":150,"mutationRate":0.05,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3691 ; Time: 1s 282ms
+  Genetic: 3244
+{"populationSize":150,"mutationRate":0.05,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3021 ; Time: 11s 686ms
+  Genetic: 2837
+{"populationSize":150,"mutationRate":0.05,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 2974 ; Time: 58s 157ms
+  Genetic: 2884
+{"populationSize":150,"mutationRate":0.1,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3480 ; Time: 1s 435ms
+  Genetic: 2703
+{"populationSize":150,"mutationRate":0.1,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3566 ; Time: 11s 823ms
+  Genetic: 2433
+{"populationSize":150,"mutationRate":0.1,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3305 ; Time: 58s 831ms
+  Genetic: 2309
+{"populationSize":200,"mutationRate":0,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 5175 ; Time: 1s 604ms
+  Genetic: 2670
+{"populationSize":200,"mutationRate":0,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3320 ; Time: 15s 334ms
+  Genetic: 2652
+{"populationSize":200,"mutationRate":0,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3776 ; Time: 76s 388ms
+  Genetic: 2820
+{"populationSize":200,"mutationRate":0.01,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 4044 ; Time: 1s 629ms
+  Genetic: 3403
+{"populationSize":200,"mutationRate":0.01,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3449 ; Time: 15s 378ms
+  Genetic: 3051
+{"populationSize":200,"mutationRate":0.01,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 2923 ; Time: 76s 774ms
+  Genetic: 2742
+{"populationSize":200,"mutationRate":0.02,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3420 ; Time: 1s 737ms
+  Genetic: 2731
+{"populationSize":200,"mutationRate":0.02,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3366 ; Time: 15s 496ms
+  Genetic: 2549
+{"populationSize":200,"mutationRate":0.02,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3487 ; Time: 76s 766ms
+  Genetic: 2882
+{"populationSize":200,"mutationRate":0.05,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3148 ; Time: 2s 585ms
+  Genetic: 2861
+{"populationSize":200,"mutationRate":0.05,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3282 ; Time: 16s 349ms
+  Genetic: 2710
+{"populationSize":200,"mutationRate":0.05,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3011 ; Time: 77s 314ms
+  Genetic: 2836
+{"populationSize":200,"mutationRate":0.1,"evolvePerStep":1,"tournamentSize":5}
+    Distance: 3307 ; Time: 1s 938ms
+  Genetic: 3049
+{"populationSize":200,"mutationRate":0.1,"evolvePerStep":10,"tournamentSize":5}
+    Distance: 3466 ; Time: 15s 866ms
+  Genetic: 2847
+{"populationSize":200,"mutationRate":0.1,"evolvePerStep":50,"tournamentSize":5}
+    Distance: 3310 ; Time: 79s 42ms
+  Genetic: 2349

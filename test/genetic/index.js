@@ -8,6 +8,7 @@ const CrossoverFactory = require('../../lib/genetic/crossover-factory');
 const MutationFactory = require('../../lib/genetic/mutation-factory');
 const SelectionFactory = require('../../lib/genetic/selection-factory');
 const MatrixGenerator = require('../../lib/branch-and-bound/matrix-generator');
+const {optionsGenerator} = require('./utils');
 
 test();
 
@@ -28,26 +29,6 @@ function test() {
         const tsp = createTsp(tourManager, option);
         testTimestamps(tsp, option, [1000, 2000, 5000, 10000, 15000, 20000, 25000, 30000]);
     }
-}
-
-function optionsGenerator(options) {
-    const option = {};
-    const keys = Object.keys(options);
-
-    function* iterate(i) {
-        if (i === keys.length) {
-            yield option;
-        } else {
-            const key = keys[i];
-            const values = options[key];
-            for (let value of values) {
-                option[key] = value;
-                yield *iterate(i + 1);
-            }
-        }
-    }
-
-    return iterate(0);
 }
 
 function createTsp(tourManager, options) {
