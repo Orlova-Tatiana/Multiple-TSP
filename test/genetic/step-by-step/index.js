@@ -21,7 +21,7 @@ function test() {
 
     const options = {
         populationSize: [30, 50, 100, 150, 200],
-        mutationRate: [0.015],
+        mutationRate: [0.1],
         evolveFirstStep: [50, 100, 300, 500],
         evolvePerStep: [1, 2, 5, 10],
         tournamentSize: [5]

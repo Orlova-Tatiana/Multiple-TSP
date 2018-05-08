@@ -318,3 +318,11 @@ Genetic: 2350
 First step distance: 2824 ; Distance: 2779 ; Time: 90s 373ms
 Genetic: 2350
 
+--------------------------
+mutationRate: 0.1
+
+{"populationSize":30,"mutationRate":0.1,"evolveFirstStep":50,"evolvePerStep":1,"tournamentSize":5}
+First step distance: 6249 ; Distance: 5305 ; Time: 1s 187ms
+Genetic: 3641
+{"populationSize":30,"mutationRate":0.1,"evolveFirstStep":50,"evolvePerStep":2,"tournamentSize":5}
+First step distance: 8001 ; Distance: 4860 ; Time: 2s 63ms
