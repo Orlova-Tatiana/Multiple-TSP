@@ -13,7 +13,7 @@ const {optionsGenerator} = require('./utils');
 test();
 
 function test() {
-    const matrix = MatrixGenerator.generateNonInfMatrix(500, 1, 1000);
+    const matrix = MatrixGenerator.generateNonInfSymmetricMatrix(500, 1, 1000);
     const tourManager = new TourManager(matrix);
 
     const options = {

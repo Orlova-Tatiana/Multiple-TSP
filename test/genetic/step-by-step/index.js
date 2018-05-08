@@ -11,16 +11,18 @@ const FisherYatesMutation = require('../../../lib/genetic/mutation-factory/fishe
 const TspByStep = require('../../../lib/genetic/step-by-step');
 const {optionsGenerator} = require('../utils');
 
+const FILE_NAME = `${__dirname}/data.txt`;
+
 test();
 
 function test() {
-    const matrix = MatrixGenerator.generateNonInfMatrix(200, 1, 1000);
+    const matrix = MatrixGenerator.generateNonInfSymmetricMatrix(200, 1, 1000);
     const tourManager = new TourManager(matrix);
 
     const options = {
         populationSize: [30, 50, 100, 150, 200],
-        mutationRate: [0, 0.01, 0.02, 0.05, 0.1],
-        evolveFirstStep: [1, 50, 100, 300],
+        mutationRate: [0.015],
+        evolveFirstStep: [50, 100, 300, 500],
         evolvePerStep: [1, 2, 5, 10],
         tournamentSize: [5]
     };
@@ -38,22 +40,25 @@ function test() {
 function testByStep(tsp, option) {
     const start = Date.now();
 
+    tsp.nextStep();
+    const firstStepDistance = tsp.getBestTour().getDistance();
+
     do {
         tsp.nextStep();
     } while (!tsp.isFinished);
 
     const time = Date.now() - start;
 
-    printByStep(option, tsp.getBestTour().getDistance(), time);
+    printByStep(option, firstStepDistance, tsp.getBestTour().getDistance(), time);
     return time;
 }
 
-function printByStep(option, distance, time) {
+function printByStep(option, firstStepDistance, distance, time) {
     const formattedTime = `${Math.floor(time / 1000)}s ${time % 1000}ms`;
-    const data = `${JSON.stringify(option)}\r\nDistance: ${distance} ; Time: ${formattedTime}`;
+    const data = `${JSON.stringify(option)}\r\nFirst step distance: ${firstStepDistance} ; Distance: ${distance} ; Time: ${formattedTime}`;
 
     try {
-        fs.appendFileSync('data.txt', `${data}\r\n`);
+        fs.appendFileSync(FILE_NAME, `${data}\r\n`);
         console.log(data);
     } catch (e) {
         console.log(data);
@@ -75,7 +80,7 @@ function testGenetic(tsp, time) {
 function printGenetic(distance) {
     const data = `Genetic: ${distance}`;
     try {
-        fs.appendFileSync('data.txt', `${data}\r\n\r\n`);
+        fs.appendFileSync(FILE_NAME, `${data}\r\n\r\n`);
         console.log(data);
     } catch (e) {
         console.log(data);
