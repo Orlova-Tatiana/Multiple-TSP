@@ -8,7 +8,7 @@ const TspGenetic = require('../../../lib/genetic');
 const TournamentSelection = require('../../../lib/genetic/selection-factory/tournament');
 const NextPrevCrossover = require('../../../lib/genetic/crossover-factory/next-prev');
 const FisherYatesMutation = require('../../../lib/genetic/mutation-factory/fisher-yates');
-const TspByStep = require('../../../lib/genetic/step-by-step');
+const TspByStep = require('../../../lib/genetic/by-step');
 const {optionsGenerator, averageStats} = require('../utils');
 const optionsFactory = require('./options-factory');
 
