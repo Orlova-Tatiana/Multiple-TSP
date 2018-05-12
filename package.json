@@ -9,7 +9,7 @@
     "build": "webpack -p",
     "build-dev": "webpack -d",
     "watch": "webpack-dev-server --mode development",
-    "make-website": "npm run build && git add index.html bundle.js bundle.css"
+    "make-website": "npm run build && git add dist"
   },
   "pre-commit": [
     "precommit-msg",

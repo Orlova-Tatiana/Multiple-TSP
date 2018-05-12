@@ -4,10 +4,13 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: './lib/react/index.js',
+    entry: {
+        'one-tsp': './lib/react/pages/one-tsp.js',
+        'multiple-tsp': './lib/react/pages/multiple-tsp.js'
+    },
     output: {
-        filename: 'bundle.js',
-        path: __dirname
+        filename: '[name].js',
+        path: `${__dirname}/dist`
     },
     module: {
         rules: [
@@ -33,11 +36,17 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: './lib/react/index.html',
-            filename: './index.html'
+            template: './lib/react/pages/one-tsp.html',
+            chunks: ['one-tsp'],
+            filename: 'one-tsp.html'
+        }),
+        new HtmlWebPackPlugin({
+            template: './lib/react/pages/multiple-tsp.html',
+            chunks: ['multiple-tsp'],
+            filename: 'multiple-tsp.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'bundle.css'
+            filename: '[name].css'
         })
     ]
 };
