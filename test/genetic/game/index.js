@@ -4,6 +4,7 @@ const Game = require('../../../lib/genetic/game');
 const Player = require('../../../lib/genetic/game/player');
 const MatrixGenerator = require('../../../lib/branch-and-bound/matrix-generator');
 const TourManager = require('../../../lib/genetic/tour/tour-manager');
+const logger = require('./logger');
 
 test();
 
@@ -20,6 +21,7 @@ function test() {
     const player3 = new Player(tourManager, Object.assign(commonOptions, {start: 2}));
 
     const game = new Game(tourManager, [player1, player2, player3]);
+    logger(game);
 
     game.init();
     while (!game.isFinished) {

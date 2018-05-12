@@ -8,6 +8,7 @@ const Selection = require('../../../lib/genetic/selection-factory/tournament');
 const Crossover = require('../../../lib/genetic/crossover-factory/next-prev');
 const Mutation = require('../../../lib/genetic/mutation-factory/fisher-yates');
 const utils = require('../../../lib/react/modules/utils');
+const logger = require('./logger');
 
 test();
 
@@ -39,6 +40,7 @@ function runMultiple(tourManager) {
     const player2 = new Player(tourManager, Object.assign(commonOptions, {start: 1}));
 
     const game = new Game(tourManager, [player1, player2]);
+    logger(game);
 
     game.init();
     while (!game.isFinished) {
