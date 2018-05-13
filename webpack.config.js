@@ -12,6 +12,10 @@ module.exports = {
         filename: '[name].js',
         path: `${__dirname}/dist`
     },
+    devtool: 'source-map',
+    devServer: {
+        publicPath: '/dist/'
+    },
     module: {
         rules: [
             {
