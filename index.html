@@ -27,6 +27,11 @@
             width: 50%;
 
             background-color: #5c002d;
+            transition: background-color 200ms;
+        }
+
+        .link-left:hover {
+            background-color: #990044;
         }
 
         .link-right {
@@ -37,20 +42,20 @@
             width: 50%;
 
             background-color: #07005c;
+            transition: background-color 200ms;
+        }
+
+        .link-right:hover {
+            background-color: #0a00a9;
         }
 
         .link {
             display: flex;
+            overflow: hidden;
 
             text-decoration: none;
             color: white;
             text-align: center;
-
-            transition: 200ms transform;
-        }
-
-        .link:hover {
-            transform: scale(0.95);
         }
 
         .link-text {
@@ -58,7 +63,13 @@
             margin: auto;
 
             font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-            font-size: 5em;
+            font-size: 4em;
+
+            transition: 200ms font-size;
+        }
+
+        .link:hover .link-text {
+            font-size: 6em;
         }
     </style>
 </head>
