@@ -7,8 +7,8 @@ module.exports = (game) => {
         console.log(`Стартовая вершина игрока №${index + 1}: ${vertex}`);
     });
 
-    game.on('turn', ({index, next, time}) => {
-        console.log(`Игрок №${index + 1} выбрал вершину ${next}, придёт в нее в ${printNumber(time, 2)}`);
+    game.on('turn', ({index, next, nextTime}) => {
+        console.log(`Игрок №${index + 1} выбрал вершину ${next}, придёт в нее в ${printNumber(nextTime, 2)}`);
     });
 
     game.on('disqualify', ({state, index, next}) => {
