@@ -1,6 +1,6 @@
 'use strict';
 
-const {printNumber} = require('../../../lib/react/modules/utils');
+const {printNumber} = require('../../../lib/static/modules/utils');
 
 module.exports = (game) => {
     game.on('init', ({index, vertex}) => {

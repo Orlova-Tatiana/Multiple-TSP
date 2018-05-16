@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        'one-tsp': './lib/react/pages/one-tsp.js',
-        'multiple-tsp': './lib/react/pages/multiple-tsp.js'
+        'one-tsp': './lib/static/pages/one-tsp.js',
+        'multiple-tsp': './lib/static/pages/multiple-tsp.js'
     },
     output: {
         filename: '[name].js',
@@ -40,12 +40,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: './lib/react/pages/one-tsp.html',
+            template: './lib/static/pages/one-tsp.html',
             chunks: ['one-tsp'],
             filename: 'one-tsp.html'
         }),
         new HtmlWebPackPlugin({
-            template: './lib/react/pages/multiple-tsp.html',
+            template: './lib/static/pages/multiple-tsp.html',
             chunks: ['multiple-tsp'],
             filename: 'multiple-tsp.html'
         }),

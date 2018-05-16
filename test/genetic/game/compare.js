@@ -7,7 +7,7 @@ const Tsp = require('../../../lib/genetic');
 const Selection = require('../../../lib/genetic/selection-factory/tournament');
 const Crossover = require('../../../lib/genetic/crossover-factory/next-prev');
 const Mutation = require('../../../lib/genetic/mutation-factory/fisher-yates');
-const utils = require('../../../lib/react/modules/utils');
+const utils = require('../../../lib/static/modules/utils');
 const logger = require('./logger');
 
 test();
