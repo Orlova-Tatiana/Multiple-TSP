@@ -115,9 +115,9 @@ module.exports = class TspByStepTester {
         return averageStats(stats);
     }
 
-    _createTspGenetic(options) {
+    _createTspGenetic(tourManager, options) {
         const {populationSize, mutationRate, tournamentSize} = options;
-        const tsp = new TspGenetic(this._tourManager, {populationSize, mutationRate});
+        const tsp = new TspGenetic(tourManager, {populationSize, mutationRate});
 
         tsp.setCrossover(new NextPrevCrossover());
         tsp.setMutation(new FisherYatesMutation());
