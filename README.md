@@ -23,7 +23,7 @@
 ### Программа
 
 Собрать и протестировать алгоритмы можно по следующей
-[ссылке](https://dmitriy-kiselyov.github.io/Multiple-TSP/).
+[ссылке](https://orlova-tatiana.github.io/Multiple-TSP/).
 
 **Внимание!**
 Код работает на последних версиях Google Chrome, Opera, Mozilla Firefox, Edge и Safari.
